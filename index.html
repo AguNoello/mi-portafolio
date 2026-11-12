@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Portfolio profesional de Fabián Agustín Noello Celi — Marketing y Publicidad Digital.">
+
+<title>Fabián Noello | Marketing & Digital Advertising</title>
+
+<style>
+
+:root {
+    --bg: #0b0b12;
+    --panel: #151522;
+    --panel2: #1d1b2d;
+    --text: #f5f3ff;
+    --muted: #b8b3ca;
+    --purple: #9b7cff;
+    --pink: #d58cff;
+    --line: #302b43;
+    --max: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at 80% 0%, #292044 0, transparent 32rem), var(--bg);
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrap {
+    width: min(var(--max), calc(100% - 40px));
+    margin: auto;
+}
+
+/* NAVEGACIÓN */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #0b0b12dd;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+}
+
+nav {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 900;
+    letter-spacing: -1px;
+    font-size: 1.35rem;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.links {
+    display: flex;
+    gap: 24px;
+    color: var(--muted);
+    font-size: .92rem;
+}
+
+.links a:hover {
+    color: white;
+}
+
+/* PORTADA */
+
+.hero {
+    min-height: 680px;
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    align-items: center;
+    gap: 55px;
+    padding: 90px 0;
+}
+
+.eyebrow {
+    color: #c4b5fd;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: .75rem;
+    font-weight: 800;
+}
+
+.hero h1 {
+    font-size: clamp(2.7rem, 6vw, 5.4rem);
+    line-height: 1.02;
+    letter-spacing: -.06em;
+    margin: 18px 0;
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: var(--purple);
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 1.15rem;
+    max-width: 650px;
+}
+
+.actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 13px 20px;
+    border-radius: 999px;
+    font-weight: 750;
+    border: 1px solid var(--line);
+    display: inline-block;
+}
+
+.primary {
+    background: linear-gradient(110deg, var(--purple), var(--pink));
+    color: #130f20;
+    border: 0;
+}
+
+.secondary:hover {
+    border-color: var(--purple);
+}
+
+/* FOTO PRINCIPAL Y GALERÍA */
+
+.photo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.photo {
+    width: min(330px, 75vw);
+    aspect-ratio: 4 / 5;
+    border-radius: 34px;
+    border: 1px solid #7661a8;
+    box-shadow: 0 25px 90px #8b5cf633;
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    display: block;
+    transition: opacity .2s ease;
+}
+
+/* MINIATURAS */
+
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    opacity: .55;
+    border: 2px solid transparent;
+    transition: all .3s ease;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    border-color: #b58aff;
+    transform: translateY(-3px);
+}
+/* Animación de entrada de las miniaturas */
+@keyframes aparecerGaleria {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.thumbnail {
+    animation: aparecerGaleria 0.7s ease backwards;
+}
+
+.thumbnail:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.thumbnail:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.thumbnail:nth-child(3) {
+    animation-delay: 0.45s;
+}
+/* Animación de la imagen principal */
+@keyframes aparecerFoto {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.photo img.animar {
+    animation: aparecerFoto 0.45s ease forwards;
+}
+/* SECCIONES */
+
+section {
+    padding: 82px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-tag {
+    color: var(--purple);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: -.045em;
+    margin: 8px 0 18px;
+}
+
+.intro {
+    max-width: 760px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+/* PROYECTOS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.card {
+    background: linear-gradient(145deg, var(--panel), #11111b);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 25px;
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #7963ae;
+}
+
+.card h3 {
+    margin: 10px 0 7px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.number {
+    font-size: .8rem;
+    color: var(--purple);
+    font-weight: 850;
+    letter-spacing: .12em;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.tag {
+    font-size: .76rem;
+    color: #d9d0f5;
+    border: 1px solid #44385f;
+    border-radius: 999px;
+    padding: 5px 10px;
+}
+
+.project-note {
+    margin-top: 18px;
+    padding: 16px 18px;
+    border-left: 3px solid var(--purple);
+    background: #171522;
+    color: var(--muted);
+    border-radius: 0 12px 12px 0;
+    font-size: .9rem;
+}
+
+/* HABILIDADES */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.skill {
+    background: var(--panel2);
+    border: 1px solid var(--line);
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: #e7e0ff;
+}
+
+/* CONTACTO */
+
+.contact {
+    background: linear-gradient(130deg, #211a36, #11111b);
+    border: 1px solid #4b3b70;
+    border-radius: 26px;
+    padding: 35px;
+    margin-top: 25px;
+}
+
+.contact p {
+    color: var(--muted);
+}
+
+footer {
+    padding: 30px 0;
+    color: #8f899f;
+    font-size: .85rem;
+    border-top: 1px solid var(--line);
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media(max-width:760px) {
+
+    .links {
+        gap: 12px;
+        font-size: .8rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 70px 0;
+        gap: 35px;
+    }
+
+    .photo-wrap {
+        grid-row: 1;
+    }
+
+    .photo {
+        width: 220px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 62px 0;
+    }
+}
+
+@media(max-width:470px) {
+
+    .links a:nth-child(2),
+    .links a:nth-child(3) {
+        display: none;
+    }
+
+    .wrap {
+        width: min(100% - 30px, var(--max));
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="wrap">
+        <nav>
+            <a class="logo" href="#">FN<span>.</span></a>
+
+            <div class="links">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- PORTADA -->
+
+<div class="wrap hero">
+
+    <div>
+        <div class="eyebrow">Portfolio · 2026</div>
+
+        <h1>
+            Ideas que se convierten en
+            <em>estrategias.</em>
+        </h1>
+
+        <p class="lead">
+            Soy Fabián Agustín Noello Celi, Técnico Universitario en Marketing y Publicidad Digital.
+            Me interesa conectar marcas con personas a través de la creatividad,
+            la comunicación y la estrategia digital.
+        </p>
+
+        <div class="actions">
+            <a class="btn primary" href="#proyectos">Ver mis proyectos ↗</a>
+            <a class="btn secondary" href="#contacto">Contactarme</a>
+        </div>
+    </div>
+
+    <!-- FOTO Y GALERÍA -->
+
+    <div class="photo-wrap" onmouseleave="restorePhoto()">
+
+    <div class="photo">
+        <img id="mainPhoto"
+             src="imagenes/Perfil1.jpg"
+             alt="Fabián - Marketing Digital">
+    </div>
+
+    <div class="photo-gallery">
+
+        <img src="imagenes/Perfil2.jpg"
+             class="thumbnail"
+             alt="Foto profesional"
+             onmouseenter="changePhoto(this)"
+             onclick="changePhoto(this)">
+
+        <img src="imagenes/Perfil3.jpg"
+             class="thumbnail"
+             alt="Foto personal"
+             onmouseenter="changePhoto(this)"
+             onclick="changePhoto(this)">
+
+        <img src="imagenes/Perfil4.jpg"
+             class="thumbnail"
+             alt="Otra fotografía"
+             onmouseenter="changePhoto(this)"
+             onclick="changePhoto(this)">
+        
+        <img src="imagenes/Perfil5.jpg"
+             class="thumbnail"
+             alt="Otra fotografía"
+             onmouseenter="changePhoto(this)"
+             onclick="changePhoto(this)">
+
+    </div>
+</div>
+
+</div>
+
+<!-- SOBRE MÍ -->
+
+<section id="sobre-mi">
+
+<div class="wrap">
+
+    <div class="section-tag">01 / Presentación</div>
+
+    <h2 class="section-title">Sobre mí</h2>
+
+    <p class="intro">
+        Soy Técnico Universitario en Marketing y Publicidad Digital.
+        Me formé en planificación de estrategias, comunicación de marca,
+        publicidad y herramientas digitales. Disfruto transformar objetivos
+        de negocio en acciones concretas, comprender al público y crear
+        mensajes que generen conexión.
+    </p>
+
+    <p class="intro">
+        Combino mi formación académica con experiencia práctica en el
+        desarrollo y la comunicación de un emprendimiento propio.
+        Busco seguir creciendo en equipos de marketing, comunicación
+        o publicidad, aportando iniciativa, creatividad y compromiso.
+    </p>
+
+</div>
+
+</section>
+
+<!-- PROYECTOS -->
+
+<section id="proyectos">
+
+<div class="wrap">
+
+    <div class="section-tag">02 / Trabajo seleccionado</div>
+
+    <h2 class="section-title">Proyectos destacados</h2>
+
+    <p class="intro">
+        Una selección de experiencias académicas y prácticas.
+        Cada caso se puede ampliar con piezas gráficas, objetivos,
+        proceso y resultados verificables.
+    </p>
+
+    <div class="grid">
+
+        <article class="card">
+
+            <div class="number">PROYECTO 01 · EMPRENDIMIENTO</div>
+
+            <h3>Doctor Celular</h3>
+
+            <p>
+                Desarrollo de identidad de marca y comunicación digital
+                para un servicio de reparación de dispositivos móviles.
+            </p>
+
+            <p style="text-align:center; margin-top:12px;">
+                <a class="btn secondary"
+                   href="https://www.instagram.com/drcelular.arg/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="font-size:13px; color:#b58aff;">
+                   Visitar Instagram de Doctor Celular ↗
+                </a>
+            </p>
+
+            <div class="tags">
+                <span class="tag">Branding</span>
+                <span class="tag">Social media</span>
+                <span class="tag">Contenido</span>
+                <span class="tag">Promociones</span>
+            </div>
+
+        </article>
+
+        <article class="card">
+
+            <div class="number">PROYECTO 02 · ACADÉMICO</div>
+
+            <h3>Fundación Visión Cero Córdoba</h3>
+
+            <p>
+                Proyecto académico de marketing y comunicación enfocado
+                en el análisis de una organización y sus oportunidades
+                de comunicación.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Análisis</span>
+                <span class="tag">Públicos</span>
+                <span class="tag">Estrategia</span>
+            </div>
+
+        </article>
+
+        <article class="card">
+
+            <div class="number">PROYECTO 03 · ACADÉMICO</div>
+
+            <h3>Ecocraft</h3>
+
+            <p>
+                Proyecto académico para trabajar el posicionamiento
+                de una propuesta de marca y el desarrollo de acciones
+                de marketing.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Marketing</span>
+                <span class="tag">Marca</span>
+                <span class="tag">Planificación</span>
+            </div>
+
+        </article>
+
+        <article class="card">
+
+            <div class="number">PROYECTO 04 · CASO PRÁCTICO</div>
+
+            <h3>Campaña digital</h3>
+
+            <p>
+                Espacio para incorporar una campaña completa:
+                objetivo, público, concepto creativo, canales,
+                calendario y métricas.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Campañas</span>
+                <span class="tag">Publicidad</span>
+                <span class="tag">Métricas</span>
+            </div>
+
+        </article>
+
+    </div>
+
+    <div class="project-note">
+        Nota: los textos describen los proyectos de forma inicial.
+        Antes de compartir el portfolio, completaremos cada caso con
+        tus tareas concretas, piezas originales y resultados disponibles.
+        No se incluyen métricas inventadas.
+    </div>
+
+</div>
+
+</section>
+
+<!-- HABILIDADES -->
+
+<section id="habilidades">
+
+<div class="wrap">
+
+    <div class="section-tag">03 / Capacidades</div>
+
+    <h2 class="section-title">Áreas de trabajo</h2>
+
+    <p class="intro">
+        Conocimientos y áreas que podemos detallar según tu nivel
+        y experiencia real.
+    </p>
+
+    <div class="skills">
+
+        <span class="skill">Marketing digital</span>
+        <span class="skill">Estrategia de contenidos</span>
+        <span class="skill">Redes sociales</span>
+        <span class="skill">Branding</span>
+        <span class="skill">Publicidad digital</span>
+        <span class="skill">Comunicación</span>
+        <span class="skill">Análisis de públicos</span>
+        <span class="skill">Planificación</span>
+        <span class="skill">SEO · conocimientos</span>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+<div class="wrap">
+
+    <div class="section-tag">04 / Próximo paso</div>
+
+    <h2 class="section-title">Hablemos de proyectos.</h2>
+
+    <div class="contact">
+
+        <h3>¿Buscás sumar creatividad y estrategia a tu equipo?</h3>
+
+        <p>
+            Estoy abierto a oportunidades laborales y proyectos
+            vinculados al marketing, la comunicación y la publicidad digital.
+        </p>
+
+        <p>
+            <strong>Fabián Agustín Noello Celi</strong><br>
+            Rosario, Santa Fe, Argentina<br>
+            agunoello@gmail.com
+        </p>
+
+        <a class="btn primary" href="mailto:agunoello@gmail.com">
+            Enviar un correo ↗
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+    <div class="wrap">
+        © 2026 Fabián Agustín Noello Celi · Portfolio de Marketing y Publicidad Digital
+    </div>
+</footer>
+
+<!-- FUNCIONALIDAD DE LA GALERÍA -->
+
+<script>
+const fotoPrincipal = "imagenes/Perfil1.jpg";
+
+function changePhoto(element) {
+    const mainPhoto = document.getElementById("mainPhoto");
+
+    if (mainPhoto.src === element.src) return;
+
+    mainPhoto.classList.remove("animar");
+
+    // Permite reiniciar la animación
+    void mainPhoto.offsetWidth;
+
+    mainPhoto.src = element.src;
+    mainPhoto.alt = element.alt;
+
+    mainPhoto.classList.add("animar");
+}
+
+function restorePhoto() {
+    const mainPhoto = document.getElementById("mainPhoto");
+
+    if (mainPhoto.src.endsWith("Perfil1.jpg")) return;
+
+    mainPhoto.classList.remove("animar");
+    void mainPhoto.offsetWidth;
+
+    mainPhoto.src = fotoPrincipal;
+    mainPhoto.alt = "Fabián - Marketing Digital";
+
+    mainPhoto.classList.add("animar");
+}
+</script>
+
+</body>
+</html>
