@@ -484,10 +484,10 @@ footer {
     <div class="photo-gallery">
 
         <img src="imagenes/Perfil2.jpg"
-             class="thumbnail"
-             alt="Foto profesional"
-             onmouseenter="changePhoto(this)"
-             onclick="changePhoto(this)">
+            class="thumbnail"
+            alt="Foto con diploma"
+            onmouseenter="changePhoto(this)"
+            onclick="changePhoto(this)">
 
         <img src="imagenes/Perfil3.jpg"
              class="thumbnail"
@@ -746,31 +746,28 @@ const fotoPrincipal = "imagenes/Perfil1.jpg";
 function changePhoto(element) {
     const mainPhoto = document.getElementById("mainPhoto");
 
-    if (mainPhoto.src === element.src) return;
+    // Si ya está mostrando esa foto, vuelve a la principal
+    if (mainPhoto.src.endsWith(element.src.split("/").pop())) {
+        restorePhoto();
+        return;
+    }
+
+    actualizarFoto(element.src, element.alt);
+}
+
+function actualizarFoto(src, alt) {
+    const mainPhoto = document.getElementById("mainPhoto");
 
     mainPhoto.classList.remove("animar");
-
-    // Permite reiniciar la animación
     void mainPhoto.offsetWidth;
 
-    mainPhoto.src = element.src;
-    mainPhoto.alt = element.alt;
-
+    mainPhoto.src = src;
+    mainPhoto.alt = alt;
     mainPhoto.classList.add("animar");
 }
 
 function restorePhoto() {
-    const mainPhoto = document.getElementById("mainPhoto");
-
-    if (mainPhoto.src.endsWith("Perfil1.jpg")) return;
-
-    mainPhoto.classList.remove("animar");
-    void mainPhoto.offsetWidth;
-
-    mainPhoto.src = fotoPrincipal;
-    mainPhoto.alt = "Fabián - Marketing Digital";
-
-    mainPhoto.classList.add("animar");
+    actualizarFoto(fotoPrincipal, "Fabián - Marketing Digital");
 }
 </script>
 
