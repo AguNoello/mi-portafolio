@@ -139,12 +139,25 @@ nav {
     font-weight: 750;
     border: 1px solid var(--line);
     display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .primary {
     background: linear-gradient(110deg, var(--purple), var(--pink));
     color: #130f20;
     border: 0;
+    transition: all 0.3s ease;
+}
+.whatsapp {
+    background: #25D366;
+    color: #ffffff;
+    border: 0;
+    margin-top: 12px;
+}
+
+.whatsapp:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
 }
 
 .secondary:hover {
@@ -424,7 +437,19 @@ footer {
         font-size: 2.8rem;
     }
 }
+.btn.whatsapp {
+    background: #25D366;
+    color: #ffffff;
+    border: none;
+    margin-top: 12px;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
 
+.btn.whatsapp:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+}
 </style>
 </head>
 
@@ -717,18 +742,19 @@ footer {
         <p>
             <strong>Fabián Agustín Noello Celi</strong><br>
             Rosario, Santa Fe, Argentina<br>
-            agunoello@gmail.com
+            agunoello@gmail.com    <br>   +54 9 3385 550292
         </p>
 
         <a class="btn primary" href="mailto:agunoello@gmail.com">
             Enviar un correo ↗
         </a>
-        <a
-  href="https://wa.me/+5493385550292?text=Hola%20Agustin%2C%20estuve%20viendo%20tu%20portfolio%20y%20me%20gustaria%20conocer%20mas%20sobre%20tus%20servicios."
-  target="_blank"
-  rel="noopener noreferrer"
+<a
+    class="btn whatsapp"
+    href="https://wa.me/5493385550292?text=Hola%20Agust%C3%ADn%2C%20estuve%20viendo%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios."
+    target="_blank"
+    rel="noopener noreferrer"
 >
-  Contactar por WhatsApp
+    Hablemos por WhatsApp ↗
 </a>
 
     </div>
