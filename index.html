@@ -456,6 +456,18 @@ footer {
     background: #1ebe5d;
     transform: translateY(-2px);
 }
+.btn.linkedln {
+    background: #1d59e4;
+    color: #ffffff;
+    border: none;
+    margin-top: 12px;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+.btn.linkedln:hover {
+    background: #1e6bbe;
+    transform: translateY(-2px);
+}
 </style>
 </head>
 
@@ -660,26 +672,6 @@ footer {
 
         </article>
 
-        <article class="card">
-
-            <div class="number">PROYECTO 04 · CASO PRÁCTICO</div>
-
-            <h3>Campaña digital</h3>
-
-            <p>
-                Espacio para incorporar una campaña completa:
-                objetivo, público, concepto creativo, canales,
-                calendario y métricas.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Campañas</span>
-                <span class="tag">Publicidad</span>
-                <span class="tag">Métricas</span>
-            </div>
-
-        </article>
-
     </div>
 
     <div class="project-note">
@@ -692,6 +684,213 @@ footer {
 </div>
 
 </section>
+
+
+<!-- SECCIÓN: HERRAMIENTAS DIGITALES -->
+<section id="herramientas" class="tools-section">
+
+  <div class="tools-container">
+
+    <div class="section-heading">
+      <span class="section-subtitle">MIS RECURSOS</span>
+      <h2>Herramientas digitales</h2>
+      <p>
+        Herramientas que utilizo para desarrollar proyectos,
+        crear contenido y trabajar en el entorno digital.
+      </p>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- PHOTOSHOP -->
+      <article class="tool-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg"
+             alt="Adobe Photoshop">
+        <h3>Adobe Photoshop</h3>
+        <p>Edición y retoque de imágenes, composición y diseño gráfico.</p>
+      </article>
+
+      <!-- CANVA -->
+      <article class="tool-card">
+        <img src="https://images.seeklogo.com/logo-png/65/1/canva-logo-png_seeklogo-653227.png"
+             alt="Canva">
+        <h3>Canva</h3>
+        <p>Diseño de piezas gráficas, presentaciones y contenido digital.</p>
+      </article>
+
+      <!-- CAPCUT -->
+      <article class="tool-card">
+        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/capcut-icon.png"
+             alt="CapCut">
+        <h3>CapCut</h3>
+        <p>Edición de videos y creación de contenido audiovisual.</p>
+      </article>
+
+      <!-- META ADS -->
+      <article class="tool-card">
+        <img src="https://cdn.simpleicons.org/meta/0866FF"
+             alt="Meta">
+        <h3>Meta Ads</h3>
+        <span class="tool-level">Nivel básico</span>
+        <p>Conocimientos iniciales de publicidad y campañas digitales.</p>
+      </article>
+
+      <!-- GOOGLE ANALYTICS -->
+      <article class="tool-card">
+        <img src="https://cdn.simpleicons.org/googleanalytics/E37400"
+             alt="Google Analytics">
+        <h3>Google Analytics</h3>
+        <span class="tool-level">Conocimientos iniciales</span>
+        <p>Familiarización con analítica y medición digital.</p>
+      </article>
+
+      <!-- MICROSOFT OFFICE -->
+      <article class="tool-card">
+        <img src="https://images.icon-icons.com/1156/PNG/512/1486565573-microsoft-office_81557.png"
+             alt="Microsoft Office">
+        <h3>Microsoft Office</h3>
+        <p>Elaboración de documentos, presentaciones y hojas de cálculo.</p>
+      </article>
+
+      <!-- GOOGLE WORKSPACE -->
+      <article class="tool-card">
+        <img src="https://static.wikia.nocookie.net/logopedia/images/c/c1/Google_Apps_for_Work_icon.png/revision/latest?cb=20241121044151"
+             alt="Google Workspace">
+        <h3>Google Workspace</h3>
+        <p>Productividad, organización y trabajo colaborativo.</p>
+      </article>
+
+      <!-- VISUAL STUDIO CODE -->
+      <article class="tool-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+             alt="Visual Studio Code">
+        <h3>Visual Studio Code</h3>
+        <p>Edición de código y desarrollo de páginas web con HTML y CSS.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* HERRAMIENTAS DIGITALES */
+
+.tools-section {
+  padding: 80px 20px;
+}
+
+.tools-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-subtitle {
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  font-size: 32px;
+  margin: 12px 0;
+}
+
+.section-heading p {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tool-card {
+  background: #ffffff;
+  border: 1px solid #e9e5ef;
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(80, 40, 120, 0.10);
+}
+
+.tool-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.tool-card h3 {
+  font-size: 16px;
+  margin: 5px 0 10px;
+  color: #25212b;
+}
+
+.tool-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #777;
+  margin: 0;
+}
+
+.tool-level {
+  display: inline-block;
+  font-size: 10px;
+  color: #8052bd;
+  background: #f2eafa;
+  padding: 5px 9px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+/* ADAPTACIÓN A TABLETS */
+@media (max-width: 900px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 480px) {
+  .tools-section {
+    padding: 55px 15px;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .tool-card {
+    padding: 20px 12px;
+  }
+
+  .section-heading h2 {
+    font-size: 26px;
+  }
+
+  .tool-card h3 {
+    font-size: 14px;
+  }
+}
+</style>
 
 <!-- HABILIDADES -->
 
@@ -751,9 +950,14 @@ footer {
             agunoello@gmail.com    <br>   +54 9 3385 550292
         </p>
 
-        <a class="btn primary" href="mailto:agunoello@gmail.com">
-            Enviar un correo ↗
-        </a>
+<a
+    class="btn primary"
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=agunoello@gmail.com&su=Consulta%20desde%20tu%20portfolio&body=Hola%20Agust%C3%ADn%2C%0A%0AEstuve%20viendo%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20marketing%20digital.%0A%0AMe%20gustar%C3%ADa%20conversar%20sobre%20una%20posible%20oportunidad%20de%20trabajo%20o%20colaboraci%C3%B3n.%0A%0ASaludos."
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Enviar un correo ↗
+</a>
 <a
     class="btn whatsapp"
     href="https://wa.me/5493385550292?text=Hola%20Agust%C3%ADn%2C%20estuve%20viendo%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios."
@@ -761,6 +965,14 @@ footer {
     rel="noopener noreferrer"
 >
     Hablemos por WhatsApp ↗
+</a>
+<a
+    class="btn linkedln"
+    href="https://www.linkedin.com/in/agustín-noello-964718236"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    LinkedIn ↗
 </a>
 
     </div>
