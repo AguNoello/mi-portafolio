@@ -643,6 +643,35 @@ footer {
         entradaTitulo 1.5s ease-out 1.2s both,
         brilloEstrategias 6s ease-in-out 2.7s infinite;
 }
+/* DISTRIBUCIÓN DEL MENÚ EN PC */
+@media screen and (min-width: 1100px) {
+    .links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        min-width: 580px;
+    }
+
+    .links a {
+        flex: 1;
+        text-align: center;
+        padding: 10px 24px;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .links a:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 20px;
+        background: rgba(213, 140, 255, 0.4);
+    }
+}
 @keyframes entradaTitulo {
     from {
         opacity: 0;
@@ -692,6 +721,14 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+/* NAVBAR MÁS CERCA DE LOS BORDES */
+@media screen and (min-width: 1100px) {
+    nav .wrap {
+        width: calc(100% - 40px);
+        max-width: none;
+        margin: 0 auto;
+    }
 }
 
 /* =================================
