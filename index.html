@@ -90,6 +90,26 @@ nav {
 }
 
 /* PORTADA */
+.section-title {
+    position: relative;
+    display: table;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 65%;
+    height: 2px;
+    margin-top: 12px;
+    background: linear-gradient(
+        90deg,
+        #9b7cff,
+        rgba(213, 140, 255, 0.15)
+    );
+    border-radius: 5px;
+}
 
 .hero {
     min-height: 680px;
@@ -1207,7 +1227,28 @@ const fotoPrincipal = "imagenes/Perfil1.jpg";
 
 function changePhoto(element) {
     const mainPhoto = document.getElementById("mainPhoto");
+    const photoThumbs = document.querySelectorAll('.photo-thumb');
 
+function selectProfilePhoto(button) {
+    const nextPhoto = button.dataset.photo;
+
+    if (!nextPhoto || !mainProfilePhoto) return;
+
+    mainPhoto.src = nextPhoto;
+
+    photoThumbs.forEach((thumb) => {
+        const isActive = thumb === button;
+
+        thumb.classList.toggle('active', isActive);
+        thumb.setAttribute('aria-pressed', String(isActive));
+    });
+}
+
+photoThumbs.forEach((button) => {
+    button.addEventListener('click', () => {
+        selectProfilePhoto(button);
+    });
+});
     // Si ya está mostrando esa foto, vuelve a la principal
     if (mainPhoto.src.endsWith(element.src.split("/").pop())) {
         restorePhoto();
@@ -1219,7 +1260,7 @@ function changePhoto(element) {
 
 function actualizarFoto(src, alt) {
     const mainPhoto = document.getElementById("mainPhoto");
-
+    
     mainPhoto.classList.remove("animar");
     void mainPhoto.offsetWidth;
 
