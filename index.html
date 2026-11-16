@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Portfolio profesional de Fabián Agustín Noello Celi — Marketing y Publicidad Digital.">
+<meta name="description" content="Portfolio profesional de Agustín Noello — Marketing y Publicidad Digital.">
 
 <title>Agustín Noello | Marketing & Digital Advertising</title>
 
@@ -502,6 +502,9 @@ footer {
     gap: 8px;
     font-size: 0.78rem;
     white-space: nowrap;
+        .hero h1 {
+        font-size: 2.8rem;
+    }
 }
 
 .links a {
@@ -517,9 +520,7 @@ footer {
     }
 }
 
-    .hero h1 {
-        font-size: 2.8rem;
-    }
+
 
 .btn.whatsapp {
     background: #25D366;
@@ -692,6 +693,190 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+/* =================================
+   AJUSTES DE TAMAÑO PARA PC
+   ================================= */
+
+@media screen and (min-width: 1100px) {
+
+    :root {
+        --max: 1320px;
+    }
+
+    .wrap {
+        width: min(var(--max), calc(100% - 80px));
+    }
+
+    /* NAVEGACIÓN */
+
+    nav {
+        height: 82px;
+    }
+
+    .logo {
+        font-size: 1.55rem;
+    }
+
+    .links {
+        font-size: 1rem;
+        gap: 30px;
+    }
+
+    /* PORTADA */
+
+    .hero {
+        min-height: 760px;
+        grid-template-columns: 1.2fr .8fr;
+        gap: 75px;
+        padding: 100px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 5.2vw, 6rem);
+    }
+
+    .eyebrow {
+        font-size: .85rem;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        max-width: 700px;
+    }
+
+    .btn {
+        padding: 15px 24px;
+        font-size: 1rem;
+    }
+
+    /* FOTOGRAFÍA */
+
+    .photo {
+        width: min(420px, 100%);
+        border-radius: 38px;
+    }
+
+    .photo-gallery {
+        gap: 13px;
+    }
+
+    .thumbnail {
+        width: 76px;
+        height: 76px;
+    }
+
+    /* SECCIONES */
+
+    section {
+        padding: 105px 0;
+    }
+
+    .section-tag {
+        font-size: .85rem;
+    }
+
+    .section-title {
+        font-size: clamp(2.5rem, 3.5vw, 3.8rem);
+    }
+
+    .intro {
+        max-width: 850px;
+        font-size: 1.15rem;
+        line-height: 1.8;
+    }
+
+    /* PROYECTOS */
+
+    .grid {
+        gap: 24px;
+        margin-top: 38px;
+    }
+
+    .card {
+        padding: 32px;
+        border-radius: 25px;
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
+    }
+
+    .card p {
+        font-size: 1.05rem;
+    }
+
+    .tag {
+        font-size: .82rem;
+        padding: 7px 12px;
+    }
+
+    /* HERRAMIENTAS */
+
+    .tools-container {
+        max-width: 1280px;
+    }
+
+    .tools-grid {
+        gap: 25px;
+    }
+
+    .tool-card {
+        padding: 32px 24px;
+    }
+
+    .tool-card img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .tool-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .tool-card p {
+        font-size: .9rem;
+    }
+
+    .section-heading h2 {
+        font-size: 2.5rem;
+    }
+
+    .section-heading p {
+        font-size: 1.05rem;
+    }
+
+    /* HABILIDADES */
+
+    .skills {
+        gap: 15px;
+    }
+
+    .skill {
+        padding: 14px 19px;
+        font-size: 1rem;
+    }
+
+    /* CONTACTO */
+
+    .contact {
+        padding: 45px;
+        border-radius: 30px;
+    }
+
+    .contact h3 {
+        font-size: 1.6rem;
+    }
+
+    .contact p {
+        font-size: 1.05rem;
+    }
+
+    footer {
+        font-size: .95rem;
+    }
+}
+
 </style>
 </head>
 
@@ -729,7 +914,7 @@ footer {
 
 
         <p class="lead">
-            Soy Fabián Agustín Noello Celi, Técnico Universitario en Marketing y Publicidad Digital.
+            Soy Agustín Noello, Técnico Universitario en Marketing y Publicidad Digital.
             Me interesa conectar marcas con personas a través de la creatividad,
             la comunicación y la estrategia digital.
         </p>
@@ -747,7 +932,7 @@ footer {
     <div class="photo">
         <img id="mainPhoto"
              src="imagenes/Perfil1.jpg"
-             alt="Fabián - Marketing Digital">
+             alt="Agustín - Marketing Digital">
              
     </div>
 
@@ -1245,7 +1430,7 @@ function changePhoto(element) {
 }
 
 function restorePhoto() {
-    actualizarFoto(fotoPrincipal, "Fabián - Marketing Digital");
+    actualizarFoto(fotoPrincipal, "Agustín - Marketing Digital");
 }
 
 // Detectar dispositivos con cursor
