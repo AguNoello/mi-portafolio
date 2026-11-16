@@ -747,8 +747,7 @@ footer {
     <div class="photo">
         <img id="mainPhoto"
              src="imagenes/Perfil1.jpg"
-             alt="Fabián - Marketing Digital"
-             onclick="restorePhoto()">
+             alt="Fabián - Marketing Digital">
              
     </div>
 
@@ -1249,28 +1248,32 @@ function restorePhoto() {
     actualizarFoto(fotoPrincipal, "Fabián - Marketing Digital");
 }
 
-// Detectar si el dispositivo admite cursor
-const tieneCursor = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+// Detectar dispositivos con cursor
+const tieneCursor = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+).matches;
 
+// PC: cambiar al pasar el cursor
 thumbnails.forEach((thumbnail) => {
-
-    // PC: cambiar al pasar el cursor
     if (tieneCursor) {
         thumbnail.addEventListener("mouseenter", () => {
             changePhoto(thumbnail);
         });
     }
 
-    // Celular y PC: cambiar con un solo clic o toque
+    // Celular: cambiar con un solo toque
     thumbnail.addEventListener("click", () => {
         changePhoto(thumbnail);
     });
 });
 
-// PC: restaurar al salir de la galería
+// PC: volver a la principal al salir de la galería
 if (tieneCursor && photoWrap) {
     photoWrap.addEventListener("mouseleave", restorePhoto);
 }
+
+// PC y celular: tocar la foto grande para volver a Perfil1
+mainPhoto.addEventListener("click", restorePhoto);
 
 
 // Animación de títulos al hacer scroll
