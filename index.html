@@ -251,6 +251,7 @@ nav {
 .thumbnail:nth-child(3) {
     animation-delay: 0.45s;
 }
+
 /* Animación de la imagen principal */
 @keyframes aparecerFoto {
     from {
@@ -476,12 +477,14 @@ footer {
 }
 
 @media(max-width:470px) {
-
-    .links a:nth-child(2),
-    .links a:nth-child(3) {
-        display: none;
+    .links {
+        display: flex;
+        gap: clamp(5px, 1.8vw, 10px);
+        font-size: clamp(.62rem, 2.6vw, .78rem);
+        white-space: nowrap;}
+    .logo {
+        font-size: 1.1rem;}
     }
-
     .wrap {
         width: min(100% - 30px, var(--max));
     }
@@ -489,7 +492,7 @@ footer {
     .hero h1 {
         font-size: 2.8rem;
     }
-}
+
 .btn.whatsapp {
     background: #25D366;
     color: #ffffff;
@@ -646,6 +649,20 @@ footer {
     0%, 100% {
         transform: translateY(0);}
     50% {transform: translateY(-5px);}
+}
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.contact-actions .btn {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>
 </head>
@@ -1115,7 +1132,9 @@ footer {
 
     <div class="section-tag">04 / Próximo paso</div>
 
-    <h2 class="titulo-animado"class="section-title">Hablemos de proyectos.</h2>
+    <h2 class="titulo-animado section-title">
+    Hablemos de proyectos.
+    </h2>
 
     <div class="contact">
 
@@ -1131,7 +1150,7 @@ footer {
             Rosario, Santa Fe, Argentina<br>
             agunoello@gmail.com    <br>   +54 9 3385 550292
         </p>
-
+<div class="contact-actions">
 <a
     
     class="btn primary"
@@ -1158,7 +1177,7 @@ footer {
 >
     LinkedIn ↗
 </a>
-
+</div>
     </div>
 
 </div>
