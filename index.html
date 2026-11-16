@@ -1240,6 +1240,14 @@ function actualizarFoto(src, alt) {
 }
 
 function changePhoto(element) {
+
+    // Si tocás nuevamente la miniatura seleccionada,
+    // vuelve a la fotografía principal.
+    if (mainPhoto.src.endsWith(element.src.split("/").pop())) {
+        restorePhoto();
+        return;
+    }
+
     actualizarFoto(element.src, element.alt);
 }
 
