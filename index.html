@@ -747,7 +747,9 @@ footer {
     <div class="photo">
         <img id="mainPhoto"
              src="imagenes/Perfil1.jpg"
-             alt="Fabián - Marketing Digital">
+             alt="Fabián - Marketing Digital"
+             onclick="restorePhoto()">
+             
     </div>
 
     <div class="photo-gallery">
@@ -1240,14 +1242,6 @@ function actualizarFoto(src, alt) {
 }
 
 function changePhoto(element) {
-
-    // Si tocás nuevamente la miniatura seleccionada,
-    // vuelve a la fotografía principal.
-    if (mainPhoto.src.endsWith(element.src.split("/").pop())) {
-        restorePhoto();
-        return;
-    }
-
     actualizarFoto(element.src, element.alt);
 }
 
