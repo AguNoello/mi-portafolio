@@ -293,6 +293,52 @@ section {
     font-size: 1.05rem;
 }
 
+
+/* CORRECCIÓN: HERRAMIENTAS EN CELULARES */
+
+@media screen and (max-width: 768px) {
+
+  #herramientas {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    padding: 45px 15px;
+  }
+
+  #herramientas .tools-container {
+    display: block !important;
+    width: 100%;
+  }
+
+  #herramientas .tools-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px;
+  }
+
+  #herramientas .tool-card {
+    display: block !important;
+    min-width: 0;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 18px 10px;
+  }
+
+  #herramientas .tool-card img {
+    display: inline-block !important;
+    width: 42px;
+    height: 42px;
+  }
+
+  #herramientas .tool-card h3,
+  #herramientas .tool-card p {
+    display: block !important;
+  }
+}
+
 /* PROYECTOS */
 
 .grid {
@@ -768,6 +814,7 @@ footer {
         <p>Edición de código y desarrollo de páginas web con HTML y CSS.</p>
       </article>
 
+      
     </div>
   </div>
 </section>
