@@ -740,9 +740,9 @@ footer {
         </div>
     </div>
 
-    <!-- FOTO Y GALERÍA -->
+<!-- FOTO Y GALERÍA -->
 
-    <div class="photo-wrap" onmouseleave="restorePhoto()">
+<div class="photo-wrap">
 
     <div class="photo">
         <img id="mainPhoto"
@@ -753,27 +753,23 @@ footer {
     <div class="photo-gallery">
 
         <img src="imagenes/Perfil2.jpg"
-            class="thumbnail"
-            alt="Foto con diploma"
-            onmouseenter="changePhoto(this)"
-            onclick="changePhoto(this)">
+             class="thumbnail"
+             alt="Foto con diploma"
+             onclick="changePhoto(this)">
 
         <img src="imagenes/Perfil3.jpg"
              class="thumbnail"
              alt="Foto personal"
-             onmouseenter="changePhoto(this)"
              onclick="changePhoto(this)">
 
         <img src="imagenes/Perfil4.jpg"
              class="thumbnail"
              alt="Otra fotografía"
-             onmouseenter="changePhoto(this)"
              onclick="changePhoto(this)">
-        
+
         <img src="imagenes/Perfil5.jpg"
              class="thumbnail"
              alt="Otra fotografía"
-             onmouseenter="changePhoto(this)"
              onclick="changePhoto(this)">
 
     </div>
@@ -1223,55 +1219,67 @@ footer {
 <!-- FUNCIONALIDAD DE LA GALERÍA -->
 
 <script>
+
+/* FUNCIONALIDAD DE LA GALERÍA */
+
 const fotoPrincipal = "imagenes/Perfil1.jpg";
 
-function changePhoto(element) {
-    const mainPhoto = document.getElementById("mainPhoto");
-    const photoThumbs = document.querySelectorAll('.photo-thumb');
+const mainPhoto = document.getElementById("mainPhoto");
+const thumbnails = document.querySelectorAll(".thumbnail");
 
-function selectProfilePhoto(button) {
-    const nextPhoto = button.dataset.photo;
-
-    if (!nextPhoto || !mainProfilePhoto) return;
-
-    mainPhoto.src = nextPhoto;
-
-    photoThumbs.forEach((thumb) => {
-        const isActive = thumb === button;
-
-        thumb.classList.toggle('active', isActive);
-        thumb.setAttribute('aria-pressed', String(isActive));
-    });
-}
-
-photoThumbs.forEach((button) => {
-    button.addEventListener('click', () => {
-        selectProfilePhoto(button);
-    });
-});
-    // Si ya está mostrando esa foto, vuelve a la principal
-    if (mainPhoto.src.endsWith(element.src.split("/").pop())) {
-        restorePhoto();
-        return;
-    }
-
-    actualizarFoto(element.src, element.alt);
-}
+let fotoSeleccionada = null;
 
 function actualizarFoto(src, alt) {
-    const mainPhoto = document.getElementById("mainPhoto");
-    
+    if (!mainPhoto) return;
+
     mainPhoto.classList.remove("animar");
     void mainPhoto.offsetWidth;
 
     mainPhoto.src = src;
     mainPhoto.alt = alt;
+
     mainPhoto.classList.add("animar");
 }
 
-function restorePhoto() {
-    actualizarFoto(fotoPrincipal, "Fabián - Marketing Digital");
+function changePhoto(element) {
+
+    if (fotoSeleccionada === element) {
+        restorePhoto();
+        return;
+    }
+
+    fotoSeleccionada = element;
+
+    actualizarFoto(element.src, element.alt);
 }
+
+function restorePhoto() {
+    fotoSeleccionada = null;
+
+    actualizarFoto(
+        fotoPrincipal,
+        "Fabián - Marketing Digital"
+    );
+}
+
+// PC: cambiar al pasar el cursor
+thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener("mouseenter", () => {
+        fotoSeleccionada = thumbnail;
+        actualizarFoto(thumbnail.src, thumbnail.alt);
+    });
+
+    // Celular y PC: cambiar al hacer clic o tocar
+    thumbnail.addEventListener("click", () => {
+        changePhoto(thumbnail);
+    });
+});
+
+// PC: volver a la principal al salir de la galería
+const photoWrap = document.querySelector(".photo-wrap");
+
+photoWrap.addEventListener("mouseleave", restorePhoto);
+
 
 
 // Animación de títulos al hacer scroll
