@@ -1,1534 +1,1602 @@
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Portfolio profesional de Agustín Noello — Marketing y Publicidad Digital.">
-
-<title>Agustín Noello | Marketing & Digital Advertising</title>
-
-<style>
-
-:root {
-    --bg: #0b0b12;
-    --panel: #151522;
-    --panel2: #1d1b2d;
-    --text: #f5f3ff;
-    --muted: #b8b3ca;
-    --purple: #9b7cff;
-    --pink: #d58cff;
-    --line: #302b43;
-    --max: 1120px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    background: radial-gradient(circle at 80% 0%, #292044 0, transparent 32rem), var(--bg);
-    color: var(--text);
-    font-family: Inter, ui-sans-serif, system-ui, Arial, sans-serif;
-    line-height: 1.6;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.wrap {
-    width: min(var(--max), calc(100% - 40px));
-    margin: auto;
-}
-
-/* NAVEGACIÓN */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: #0b0b12dd;
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--line);
-}
-
-nav {
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-weight: 900;
-    letter-spacing: -1px;
-    font-size: 1.35rem;
-}
-
-.logo span {
-    color: var(--purple);
-}
-
-.links {
-    display: flex;
-    gap: 24px;
-    color: var(--muted);
-    font-size: .92rem;
-}
-
-.links a:hover {
-    color: white;
-}
-
-/* PORTADA */
-.section-title {
-    position: relative;
-    display: table;
-    padding-bottom: 12px;
-    margin-bottom: 25px;
-}
-
-.section-title::after {
-    content: "";
-    display: block;
-    width: 65%;
-    height: 2px;
-    margin-top: 12px;
-    background: linear-gradient(
-        90deg,
-        #9b7cff,
-        rgba(213, 140, 255, 0.15)
-    );
-    border-radius: 5px;
-}
-
-.hero {
-    min-height: 680px;
-    display: grid;
-    grid-template-columns: 1.25fr .75fr;
-    align-items: center;
-    gap: 55px;
-    padding: 90px 0;
-}
-
-.eyebrow {
-    color: #c4b5fd;
-    text-transform: uppercase;
-    letter-spacing: .18em;
-    font-size: .75rem;
-    font-weight: 800;
-}
-
-.hero h1 {
-    font-size: clamp(2.7rem, 6vw, 5.4rem);
-    line-height: 1.02;
-    letter-spacing: -.06em;
-    margin: 18px 0;
-}
-
-.hero h1 em {
-    font-style: normal;
-    color: var(--purple);
-}
-
-.lead {
-    color: var(--muted);
-    font-size: 1.15rem;
-    max-width: 650px;
-}
-
-.actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.btn {
-    padding: 13px 20px;
-    border-radius: 999px;
-    font-weight: 750;
-    border: 1px solid var(--line);
-    display: inline-block;
-}
-
-.primary {
-    background: linear-gradient(110deg, var(--purple), var(--pink));
-    color: #130f20;
-    border: 0;
-}
-.btn.primary {
-    margin-left: 10px;
-    transition: all 0.3s ease;
-}
-
-.btn.primary:hover {
-    filter: brightness(1.15);
-    transform: translateY(-2px);
-}
-.whatsapp {
-    background: #25D366;
-    color: #ffffff;
-    border: 0;
-    margin-top: 12px;
-}
-
-.whatsapp:hover {
-    background: #1ebe5d;
-    transform: translateY(-2px);
-}
-
-.secondary:hover {
-    border-color: var(--purple);
-}
-
-/* FOTO PRINCIPAL Y GALERÍA */
-
-.photo-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.photo {
-    width: min(330px, 75vw);
-    aspect-ratio: 4 / 5;
-    border-radius: 34px;
-    border: 1px solid #7661a8;
-    box-shadow: 0 25px 90px #8b5cf633;
-    overflow: hidden;
-}
-
-.photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 22%;
-    display: block;
-    transition: opacity .2s ease;
-}
-
-/* MINIATURAS */
-
-.photo-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.thumbnail {
-    width: 65px;
-    height: 65px;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    opacity: .55;
-    border: 2px solid transparent;
-    transition: all .3s ease;
-}
-
-.thumbnail:hover {
-    opacity: 1;
-    border-color: #b58aff;
-    transform: translateY(-3px);
-}
-/* Animación de entrada de las miniaturas */
-@keyframes aparecerGaleria {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.thumbnail {
-    animation: aparecerGaleria 0.7s ease backwards;
-}
-
-.thumbnail:nth-child(1) {
-    animation-delay: 0.15s;
-}
-
-.thumbnail:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.thumbnail:nth-child(3) {
-    animation-delay: 0.45s;
-}
-
-/* Animación de la imagen principal */
-@keyframes aparecerFoto {
-    from {
-        opacity: 0;
-        transform: scale(0.92) translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-.photo img.animar {
-    animation: aparecerFoto 0.45s ease forwards;
-}
-/* SECCIONES */
-
-section {
-    padding: 82px 0;
-    border-top: 1px solid var(--line);
-}
-
-.section-tag {
-    color: var(--purple);
-    font-size: .75rem;
-    font-weight: 800;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-}
-
-.section-title {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    letter-spacing: -.045em;
-    margin: 8px 0 18px;
-}
-
-.intro {
-    max-width: 760px;
-    color: var(--muted);
-    font-size: 1.05rem;
-}
-
-
-/* CORRECCIÓN: HERRAMIENTAS EN CELULARES */
-
-@media screen and (max-width: 768px) {
-
-  #herramientas {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-    padding: 45px 15px;
-  }
-
-  #herramientas .tools-container {
-    display: block !important;
-    width: 100%;
-  }
-
-  #herramientas .tools-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px;
-  }
-
-  #herramientas .tool-card {
-    display: block !important;
-    min-width: 0;
-    visibility: visible !important;
-    opacity: 1 !important;
-    padding: 18px 10px;
-  }
-
-  #herramientas .tool-card img {
-    display: inline-block !important;
-    width: 42px;
-    height: 42px;
-  }
-
-  #herramientas .tool-card h3,
-  #herramientas .tool-card p {
-    display: block !important;
-  }
-}
-
-/* PROYECTOS */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    margin-top: 30px;
-}
-
-.card {
-    background: linear-gradient(145deg, var(--panel), #11111b);
-    border: 1px solid var(--line);
-    border-radius: 22px;
-    padding: 25px;
-    transition: .2s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    border-color: #7963ae;
-}
-
-.card h3 {
-    margin: 10px 0 7px;
-    font-size: 1.3rem;
-}
-
-.card p {
-    color: var(--muted);
-    margin: 0;
-}
-
-.number {
-    font-size: .8rem;
-    color: var(--purple);
-    font-weight: 850;
-    letter-spacing: .12em;
-}
-
-.tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 18px;
-}
-
-.tag {
-    font-size: .76rem;
-    color: #d9d0f5;
-    border: 1px solid #44385f;
-    border-radius: 999px;
-    padding: 5px 10px;
-}
-
-.project-note {
-    margin-top: 18px;
-    padding: 16px 18px;
-    border-left: 3px solid var(--purple);
-    background: #171522;
-    color: var(--muted);
-    border-radius: 0 12px 12px 0;
-    font-size: .9rem;
-}
-
-/* HABILIDADES */
-
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.skill {
-    background: var(--panel2);
-    border: 1px solid var(--line);
-    padding: 12px 16px;
-    border-radius: 12px;
-    color: #e7e0ff;
-}
-
-/* CONTACTO */
-
-.contact {
-    background: linear-gradient(130deg, #211a36, #11111b);
-    border: 1px solid #4b3b70;
-    border-radius: 26px;
-    padding: 35px;
-    margin-top: 25px;
-}
-
-.contact p {
-    color: var(--muted);
-}
-
-footer {
-    padding: 30px 0;
-    color: #8f899f;
-    font-size: .85rem;
-    border-top: 1px solid var(--line);
-}
-
-/* DISEÑO PARA CELULARES */
-
-@media(max-width:760px) {
-
-    .links {
-        gap: 12px;
-        font-size: .8rem;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding: 70px 0;
-        gap: 35px;
-    }
-
-    .photo-wrap {
-        grid-row: 1;
-    }
-
-    .photo {
-        width: 220px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    section {
-        padding: 62px 0;
-    }
-}
-
-@media(max-width:470px) {
-    .links {
-    display: flex;
-    gap: 8px;
-    font-size: 0.78rem;
-    white-space: nowrap;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio profesional de Agustín Noello — Marketing y Publicidad Digital.">
+    <meta name="theme-color" content="#0b0b12">
+    <title>Agustín Noello | Marketing y Publicidad Digital</title>
+
+    <style>
+        /* ==================================================
+           1. VARIABLES Y ESTILOS GENERALES
+        ================================================== */
+        :root {
+            --bg: #0b0b12;
+            --panel: #151522;
+            --panel2: #1d1b2d;
+            --text: #f5f3ff;
+            --muted: #b8b3ca;
+            --purple: #9b7cff;
+            --pink: #d58cff;
+            --line: #302b43;
+            --max: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 80% 0%, #292044 0, transparent 32rem),
+                var(--bg);
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, system-ui, Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        /* ==================================================
+           2. NAVEGACIÓN Y SELECTOR DE IDIOMA
+        ================================================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #0b0b12dd;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--purple);
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .links a {
+            transition: color .25s ease;
+        }
+
+        .links a:hover {
+            color: #fff;
+        }
+
+        .language-switch {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            flex-shrink: 0;
+            margin-left: 8px;
+            font-size: .9rem;
+        }
+
+        .lang-btn {
+            padding: 7px 3px;
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            font-weight: 800;
+            cursor: pointer;
+            transition: color .25s ease;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            color: var(--purple);
+        }
+
+        .language-switch span {
+            color: var(--line);
+        }
+
+        /* ==================================================
+           3. PORTADA
+        ================================================== */
+        .hero {
+            min-height: 680px;
+            display: grid;
+            grid-template-columns: 1.25fr .75fr;
+            align-items: center;
+            gap: 55px;
+            padding-block: 90px;
+        }
+
+        .eyebrow {
+            color: #c4b5fd;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
         .hero h1 {
-        font-size: 2.8rem;
-    }
-}
-
-.links a {
-    font-size: 0.78rem;
-}
-
-    .logo {
-        font-size: 1.1rem;
-    }
-
-    .wrap {
-        width: min(100% - 30px, var(--max));
-    }
-}
-
-
-
-.btn.whatsapp {
-    background: #25D366;
-    color: #ffffff;
-    border: none;
-    margin-top: 12px;
-    margin-left: 10px;
-    transition: all 0.3s ease;
-}
-
-.btn.whatsapp:hover {
-    background: #1ebe5d;
-    transform: translateY(-2px);
-}
-.btn.linkedln {
-    background: #1d59e4;
-    color: #ffffff;
-    border: none;
-    margin-top: 12px;
-    margin-left: 10px;
-    transition: all 0.3s ease;
-}
-.btn.linkedln:hover {
-    background: #1e6bbe;
-    transform: translateY(-2px);
-}
-/* Animación de títulos al hacer scroll */
-.titulo-animado {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.titulo-animado.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Movimiento suave y brillo de títulos */
-
-.section-title,
-.section-heading h2 {
-    animation: movimientoTitulo 4s ease-in-out infinite,
-               brilloTitulo 3.5s ease-in-out infinite alternate;
-    will-change: transform, text-shadow;
-}
-
-@keyframes movimientoTitulo {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-4px);
-    }
-}
-
-@keyframes brilloTitulo {
-    from {
-        text-shadow: 0 0 3px rgba(155, 124, 255, 0.10);
-    }
-    to {
-        text-shadow:
-            0 0 8px rgba(155, 124, 255, 0.30),
-            0 0 18px rgba(213, 140, 255, 0.15);
-    }
-}
-
-/* Respeta las preferencias de movimiento */
-@media (prefers-reduced-motion: reduce) {
-    .section-title,
-    .section-heading h2 {
-        animation: none;
-    }
-}
-
-/* Título principal de portada */
-
-.hero h1 {
-    animation: flotarHero 5s ease-in-out infinite;
-    text-shadow: 0 0 12px rgba(155, 124, 255, 0.15);
-}
-
-
-
-@keyframes flotarHero {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-@keyframes brilloEstrategias {
-    0%, 100% {
-        background-position: 0% center;
-    }
-    50% {
-        background-position: 100% center;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hero h1,
-    .hero h1 em {
-        animation: none;
-    }
-}
-.hero-title {
-    animation: flotarHero 7s ease-in-out infinite;
-}
-
-.hero-line {
-    animation: entradaTitulo 1.5s ease-out 0.3s both;
-}
-
-.hero-highlight {
-    display: inline-block;
-    animation:
-        entradaTitulo 1.5s ease-out 1.2s both,
-        brilloEstrategias 6s ease-in-out 2.7s infinite;
-}
-/* DISTRIBUCIÓN DEL MENÚ EN PC */
-@media screen and (min-width: 1100px) {
-    .links {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0;
-        min-width: 580px;
-    }
-
-    .links a {
-        flex: 1;
-        text-align: center;
-        padding: 10px 24px;
-        position: relative;
-        white-space: nowrap;
-    }
-
-    .links a:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 1px;
-        height: 20px;
-        background: rgba(213, 140, 255, 0.4);
-    }
-}
-@keyframes entradaTitulo {
-    from {
-        opacity: 0;
-        transform: translateY(35px);
-        filter: blur(5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-@keyframes movimientoEstrategia {
-    0%, 100% {
-        transform: translateY(5px);
-    }
-    50% {
-        transform: translateY(-7px);
-    }
-}
-
-@keyframes flotarHero {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-@keyframes brilloEstrategias {
-    0%, 100% { background-position: 0% center; }
-    50% { background-position: 100% center; }
-}
-@keyframes flotarEstrategias {
-    0%, 100% {
-        transform: translateY(0);}
-    50% {transform: translateY(-5px);}
-}
-.contact-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.contact-actions .btn {
-    margin: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-/* NAVBAR MÁS CERCA DE LOS BORDES */
-@media screen and (min-width: 1100px) {
-    nav .wrap {
-        width: calc(100% - 40px);
-        max-width: none;
-        margin: 0 auto;
-    }
-}
-
-/* =================================
-   AJUSTES DE TAMAÑO PARA PC
-   ================================= */
-
-@media screen and (min-width: 1100px) {
-
-    :root {
-        --max: 1320px;
-    }
-
-    .wrap {
-        width: min(var(--max), calc(100% - 80px));
-    }
-
-    /* NAVEGACIÓN */
-
-    nav {
-        height: 82px;
-    }
-
-    .logo {
-        font-size: 1.55rem;
-    }
-
-    .links {
-        font-size: 1rem;
-        gap: 30px;
-    }
-
-    /* PORTADA */
-
-    .hero {
-        min-height: 760px;
-        grid-template-columns: 1.2fr .8fr;
-        gap: 75px;
-        padding: 100px 0;
-    }
-
-    .hero h1 {
-        font-size: clamp(3.5rem, 5.2vw, 6rem);
-    }
-
-    .eyebrow {
-        font-size: .85rem;
-    }
-
-    .lead {
-        font-size: 1.25rem;
-        max-width: 700px;
-    }
-
-    .btn {
-        padding: 15px 24px;
-        font-size: 1rem;
-    }
-
-    /* FOTOGRAFÍA */
-
-    .photo {
-        width: min(420px, 100%);
-        border-radius: 38px;
-    }
-
-    .photo-gallery {
-        gap: 13px;
-    }
-
-    .thumbnail {
-        width: 76px;
-        height: 76px;
-    }
-
-    /* SECCIONES */
-
-    section {
-        padding: 105px 0;
-    }
-
-    .section-tag {
-        font-size: .85rem;
-    }
-
-    .section-title {
-        font-size: clamp(2.5rem, 3.5vw, 3.8rem);
-    }
-
-    .intro {
-        max-width: 850px;
-        font-size: 1.15rem;
-        line-height: 1.8;
-    }
-
-    /* PROYECTOS */
-
-    .grid {
-        gap: 24px;
-        margin-top: 38px;
-    }
-
-    .card {
-        padding: 32px;
-        border-radius: 25px;
-    }
-
-    .card h3 {
-        font-size: 1.5rem;
-    }
-
-    .card p {
-        font-size: 1.05rem;
-    }
-
-    .tag {
-        font-size: .82rem;
-        padding: 7px 12px;
-    }
-
-    /* HERRAMIENTAS */
-
-    .tools-container {
-        max-width: 1280px;
-    }
-
-    .tools-grid {
-        gap: 25px;
-    }
-
-    .tool-card {
-        padding: 32px 24px;
-    }
-
-    .tool-card img {
-        width: 55px;
-        height: 55px;
-    }
-
-    .tool-card h3 {
-        font-size: 1.1rem;
-    }
-
-    .tool-card p {
-        font-size: .9rem;
-    }
-
-    .section-heading h2 {
-        font-size: 2.5rem;
-    }
-
-    .section-heading p {
-        font-size: 1.05rem;
-    }
-
-    /* HABILIDADES */
-
-    .skills {
-        gap: 15px;
-    }
-
-    .skill {
-        padding: 14px 19px;
-        font-size: 1rem;
-    }
-
-    /* CONTACTO */
-
-    .contact {
-        padding: 45px;
-        border-radius: 30px;
-    }
-
-    .contact h3 {
-        font-size: 1.6rem;
-    }
-
-    .contact p {
-        font-size: 1.05rem;
-    }
-
-    footer {
-        font-size: .95rem;
-    }
-}
-
-</style>
+            margin: 18px 0;
+            font-size: clamp(2.7rem, 6vw, 5.4rem);
+            line-height: 1.02;
+            letter-spacing: -.06em;
+            text-shadow: 0 0 12px rgba(155, 124, 255, .15);
+            animation: flotarHero 5s ease-in-out infinite;
+        }
+
+        .hero h1 em {
+            display: inline-block;
+            color: var(--purple);
+            font-style: normal;
+        }
+
+        .hero-line {
+            display: inline-block;
+            animation: entradaTitulo 1.2s ease-out .2s both;
+        }
+
+        .hero-highlight {
+            animation:
+                entradaTitulo 1.2s ease-out .8s both,
+                brilloEstrategias 6s ease-in-out 2s infinite;
+        }
+
+        .lead {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.15rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        /* ==================================================
+           4. BOTONES
+        ================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 20px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-weight: 750;
+            transition: transform .3s ease, filter .3s ease, background .3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn.primary {
+            border: 0;
+            background: linear-gradient(110deg, var(--purple), var(--pink));
+            color: #130f20;
+        }
+
+        .btn.primary:hover {
+            filter: brightness(1.15);
+        }
+
+        .btn.secondary:hover {
+            border-color: var(--purple);
+        }
+
+        .btn.whatsapp {
+            border: 0;
+            background: #25d366;
+            color: #fff;
+        }
+
+        .btn.whatsapp:hover {
+            background: #1ebe5d;
+        }
+
+        .btn.linkedln {
+            border: 0;
+            background: #1d59e4;
+            color: #fff;
+        }
+
+        .btn.linkedln:hover {
+            background: #1e6bbe;
+        }
+
+        /* ==================================================
+           5. FOTO PRINCIPAL Y GALERÍA
+        ================================================== */
+        .photo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .photo {
+            width: min(330px, 75vw);
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border: 1px solid #7661a8;
+            border-radius: 34px;
+            box-shadow: 0 25px 90px #8b5cf633;
+            cursor: pointer;
+        }
+
+        .photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 22%;
+        }
+
+        .photo img.animar {
+            animation: aparecerFoto .45s ease forwards;
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 65px;
+            height: 65px;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            object-fit: cover;
+            opacity: .55;
+            cursor: pointer;
+            animation: aparecerGaleria .7s ease backwards;
+            transition: opacity .3s ease, border-color .3s ease, transform .3s ease;
+        }
+
+        .thumbnail:nth-child(1) { animation-delay: .15s; }
+        .thumbnail:nth-child(2) { animation-delay: .3s; }
+        .thumbnail:nth-child(3) { animation-delay: .45s; }
+        .thumbnail:nth-child(4) { animation-delay: .6s; }
+
+        .thumbnail:hover,
+        .thumbnail:focus-visible {
+            border-color: #b58aff;
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        /* ==================================================
+           6. ESTRUCTURA GENERAL DE SECCIONES
+        ================================================== */
+        section {
+            padding-block: 82px;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-tag {
+            color: var(--purple);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            position: relative;
+            display: table;
+            margin: 8px 0 25px;
+            padding-bottom: 12px;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            letter-spacing: -.045em;
+            animation: movimientoTitulo 4s ease-in-out infinite,
+                       brilloTitulo 3.5s ease-in-out infinite alternate;
+        }
+
+        .section-title::after {
+            display: block;
+            width: 65%;
+            height: 2px;
+            margin-top: 12px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--purple), rgba(213, 140, 255, .15));
+            content: "";
+        }
+
+        .intro {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        /* Animación de entrada al aparecer en pantalla */
+        .titulo-animado {
+            opacity: 0;
+            transition: opacity .8s ease;
+        }
+
+        .titulo-animado.visible {
+            opacity: 1;
+        }
+
+        /* ==================================================
+           7. PROYECTOS
+        ================================================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .card {
+            padding: 25px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: linear-gradient(145deg, var(--panel), #11111b);
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .card:hover {
+            border-color: #7963ae;
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin: 10px 0 7px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .number {
+            color: var(--purple);
+            font-size: .8rem;
+            font-weight: 850;
+            letter-spacing: .12em;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            padding: 5px 10px;
+            border: 1px solid #44385f;
+            border-radius: 999px;
+            color: #d9d0f5;
+            font-size: .76rem;
+        }
+
+        .project-note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-left: 3px solid var(--purple);
+            border-radius: 0 12px 12px 0;
+            background: #171522;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .project-link-wrap {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .project-link {
+            color: #b58aff;
+            font-size: 13px;
+        }
+
+        /* ==================================================
+           8. HERRAMIENTAS DIGITALES
+        ================================================== */
+        .tools-section {
+            padding: 80px 20px;
+        }
+
+        .tools-container {
+            max-width: 1100px;
+            margin-inline: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: #8b5cf6;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            margin: 12px 0;
+            font-size: 32px;
+            animation: movimientoTitulo 4s ease-in-out infinite,
+                       brilloTitulo 3.5s ease-in-out infinite alternate;
+        }
+
+        .section-heading p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            min-width: 0;
+            padding: 25px 20px;
+            border: 1px solid #e9e5ef;
+            border-radius: 16px;
+            background: #fff;
+            text-align: center;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .tool-card:hover {
+            box-shadow: 0 10px 25px rgba(80, 40, 120, .10);
+            transform: translateY(-5px);
+        }
+
+        .tool-card img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .tool-card h3 {
+            margin: 5px 0 10px;
+            color: #25212b;
+            font-size: 16px;
+        }
+
+        .tool-card p {
+            margin: 0;
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .tool-level {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: #f2eafa;
+            color: #8052bd;
+            font-size: 10px;
+        }
+
+        /* ==================================================
+           9. HABILIDADES
+        ================================================== */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            padding: 12px 16px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--panel2);
+            color: #e7e0ff;
+        }
+
+        /* ==================================================
+           10. CONTACTO Y PIE DE PÁGINA
+        ================================================== */
+        .contact {
+            margin-top: 25px;
+            padding: 35px;
+            border: 1px solid #4b3b70;
+            border-radius: 26px;
+            background: linear-gradient(130deg, #211a36, #11111b);
+        }
+
+        .contact p {
+            color: var(--muted);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        footer {
+            padding-block: 30px;
+            border-top: 1px solid var(--line);
+            color: #8f899f;
+            font-size: .85rem;
+        }
+
+        /* ==================================================
+           11. ANIMACIONES
+        ================================================== */
+        @keyframes aparecerGaleria {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes aparecerFoto {
+            from {
+                opacity: 0;
+                transform: scale(.92) translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes movimientoTitulo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes brilloTitulo {
+            from {
+                text-shadow: 0 0 3px rgba(155, 124, 255, .10);
+            }
+            to {
+                text-shadow:
+                    0 0 8px rgba(155, 124, 255, .30),
+                    0 0 18px rgba(213, 140, 255, .15);
+            }
+        }
+
+        @keyframes flotarHero {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes entradaTitulo {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+                filter: blur(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes brilloEstrategias {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        /* ==================================================
+           12. TABLETS
+        ================================================== */
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* ==================================================
+           13. CELULARES
+        ================================================== */
+        @media (max-width: 760px) {
+            nav {
+                gap: 8px;
+            }
+
+            .links {
+                gap: 12px;
+                font-size: .8rem;
+            }
+
+            .language-switch {
+                gap: 4px;
+                margin-left: 2px;
+                font-size: .78rem;
+            }
+
+            .hero {
+                min-height: auto;
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding-block: 70px;
+            }
+
+            .photo-wrap {
+                grid-row: 1;
+            }
+
+            .photo {
+                width: 220px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding-block: 62px;
+            }
+
+            #herramientas {
+                display: block;
+                width: 100%;
+                height: auto;
+                overflow: visible;
+                padding: 45px 15px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            #herramientas .tools-container {
+                display: block;
+                width: 100%;
+            }
+
+            #herramientas .tools-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            #herramientas .tool-card {
+                display: block;
+                min-width: 0;
+                padding: 18px 10px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            #herramientas .tool-card img {
+                display: inline-block;
+                width: 42px;
+                height: 42px;
+            }
+
+            #herramientas .tool-card h3,
+            #herramientas .tool-card p {
+                display: block;
+            }
+        }
+
+        @media (max-width: 470px) {
+            .wrap {
+                width: min(100% - 30px, var(--max));
+            }
+
+            .logo {
+                font-size: .95rem;
+            }
+
+            .links {
+                gap: 7px;
+                font-size: .7rem;
+                white-space: nowrap;
+            }
+
+            .links a {
+                font-size: .7rem;
+            }
+
+            .language-switch {
+                gap: 3px;
+                font-size: .7rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .tools-section {
+                padding: 55px 15px;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .tool-card {
+                padding: 20px 12px;
+            }
+
+            .section-heading h2 {
+                font-size: 26px;
+            }
+
+            .tool-card h3 {
+                font-size: 14px;
+            }
+
+            .contact {
+                padding: 25px 20px;
+            }
+        }
+
+        /* ==================================================
+           14. ESCRITORIO GRANDE
+        ================================================== */
+        @media (min-width: 1100px) {
+            :root {
+                --max: 1320px;
+            }
+
+            .wrap {
+                width: min(var(--max), calc(100% - 80px));
+            }
+
+            nav {
+                min-height: 82px;
+            }
+
+            nav .wrap {
+                width: calc(100% - 40px);
+                max-width: none;
+            }
+
+            .logo {
+                font-size: 1.55rem;
+            }
+
+            .links {
+                min-width: 580px;
+                justify-content: space-between;
+                gap: 0;
+                font-size: 1rem;
+            }
+
+            .links a {
+                position: relative;
+                flex: 1;
+                padding: 10px 24px;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .links a:not(:last-child)::after {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 1px;
+                height: 20px;
+                background: rgba(213, 140, 255, .4);
+                content: "";
+                transform: translateY(-50%);
+            }
+
+            .hero {
+                min-height: 760px;
+                grid-template-columns: 1.2fr .8fr;
+                gap: 75px;
+                padding-block: 100px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3.5rem, 5.2vw, 6rem);
+            }
+
+            .eyebrow {
+                font-size: .85rem;
+            }
+
+            .lead {
+                max-width: 700px;
+                font-size: 1.25rem;
+            }
+
+            .btn {
+                padding: 15px 24px;
+                font-size: 1rem;
+            }
+
+            .photo {
+                width: min(420px, 100%);
+                border-radius: 38px;
+            }
+
+            .photo-gallery {
+                gap: 13px;
+            }
+
+            .thumbnail {
+                width: 76px;
+                height: 76px;
+            }
+
+            section {
+                padding-block: 105px;
+            }
+
+            .section-tag {
+                font-size: .85rem;
+            }
+
+            .section-title {
+                font-size: clamp(2.5rem, 3.5vw, 3.8rem);
+            }
+
+            .intro {
+                max-width: 850px;
+                font-size: 1.15rem;
+                line-height: 1.8;
+            }
+
+            .grid {
+                gap: 24px;
+                margin-top: 38px;
+            }
+
+            .card {
+                padding: 32px;
+                border-radius: 25px;
+            }
+
+            .card h3 {
+                font-size: 1.5rem;
+            }
+
+            .card p {
+                font-size: 1.05rem;
+            }
+
+            .tag {
+                padding: 7px 12px;
+                font-size: .82rem;
+            }
+
+            .tools-container {
+                max-width: 1280px;
+            }
+
+            .tools-grid {
+                gap: 25px;
+            }
+
+            .tool-card {
+                padding: 32px 24px;
+            }
+
+            .tool-card img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .tool-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .tool-card p {
+                font-size: .9rem;
+            }
+
+            .section-heading h2 {
+                font-size: 2.5rem;
+            }
+
+            .section-heading p {
+                font-size: 1.05rem;
+            }
+
+            .skills {
+                gap: 15px;
+            }
+
+            .skill {
+                padding: 14px 19px;
+                font-size: 1rem;
+            }
+
+            .contact {
+                padding: 45px;
+                border-radius: 30px;
+            }
+
+            .contact h3 {
+                font-size: 1.6rem;
+            }
+
+            .contact p {
+                font-size: 1.05rem;
+            }
+
+            footer {
+                font-size: .95rem;
+            }
+        }
+
+        /* Accesibilidad: reducir animaciones si el usuario lo prefiere */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- ==================================================
+         ENCABEZADO Y NAVEGACIÓN
+    ================================================== -->
+    <header>
+        <div class="wrap">
+            <nav aria-label="Navegación principal">
+                <a class="logo" href="#" aria-label="Ir al inicio">AN<span>.</span></a>
 
-<header>
-    <div class="wrap">
-        <nav>
-            <a class="logo" href="#">AN<span>.</span></a>
+                <div class="links">
+                    <a href="#sobre-mi">Sobre mí</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#habilidades">Habilidades</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
 
-            <div class="links">
-                <a href="#sobre-mi">Sobre mí</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#habilidades">Habilidades</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </nav>
-    </div>
-</header>
-
-<main>
-
-<!-- PORTADA -->
-
-<div class="wrap hero">
-
-    <div>
-        <div class="eyebrow">Portfolio · 2026</div>
-
-        
-    <h1 class="hero-title">
-        <span class="hero-line">Ideas que se convierten en</span>
-        <em class="hero-highlight">estrategias.</em>
-    </h1>
-
-
-        <p class="lead">
-            Soy Agustín Noello, Técnico Universitario en Marketing y Publicidad Digital.
-            Me interesa conectar marcas con personas a través de la creatividad,
-            la comunicación y la estrategia digital.
-        </p>
-
-        <div class="actions">
-            <a class="btn primary" href="#proyectos">Ver mis proyectos ↗</a>
-            <a class="btn secondary" href="#contacto">Contactarme</a>
+                <div class="language-switch" aria-label="Seleccionar idioma">
+                    <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+                    <span aria-hidden="true">|</span>
+                    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+            </nav>
         </div>
-    </div>
+    </header>
 
-<!-- FOTO Y GALERÍA -->
+    <main>
+        <!-- ==================================================
+             PORTADA
+        ================================================== -->
+        <div class="wrap hero">
+            <div class="hero-content">
+                <div class="eyebrow">Portfolio · 2026</div>
 
-<div class="photo-wrap">
+                <h1 class="hero-title">
+                    <span class="hero-line">Ideas que se convierten en</span>
+                    <em class="hero-highlight">estrategias.</em>
+                </h1>
 
-    <div class="photo">
-        <img id="mainPhoto"
-             src="imagenes/Perfil1.jpg"
-             alt="Agustín - Marketing Digital">
-             
-    </div>
+                <p class="lead">
+                    Soy Agustín Noello, Técnico Universitario en Marketing y Publicidad Digital.
+                    Me interesa conectar marcas con personas a través de la creatividad,
+                    la comunicación y la estrategia digital.
+                </p>
 
-    <div class="photo-gallery">
-
-        <img src="imagenes/Perfil2.jpg"
-             class="thumbnail"
-             alt="Foto con diploma"
-             onclick="changePhoto(this)">
-
-        <img src="imagenes/Perfil3.jpg"
-             class="thumbnail"
-             alt="Foto personal"
-             onclick="changePhoto(this)">
-
-        <img src="imagenes/Perfil4.jpg"
-             class="thumbnail"
-             alt="Otra fotografía"
-             onclick="changePhoto(this)">
-
-        <img src="imagenes/Perfil5.jpg"
-             class="thumbnail"
-             alt="Otra fotografía"
-             onclick="changePhoto(this)">
-
-    </div>
-</div>
-
-</div>
-
-<!-- SOBRE MÍ -->
-
-<section id="sobre-mi">
-
-<div class="wrap">
-
-    <div class="section-tag">01 / Presentación</div>
-
-    <h2 class="section-title">Sobre mí</h2>
-
-    <p class="intro">
-        Soy Técnico Universitario en Marketing y Publicidad Digital.
-        Me formé en planificación de estrategias, comunicación de marca,
-        publicidad y herramientas digitales. Disfruto transformar objetivos
-        de negocio en acciones concretas, comprender al público y crear
-        mensajes que generen conexión.
-    </p>
-
-    <p class="intro">
-        Combino mi formación académica con experiencia práctica en el
-        desarrollo y la comunicación de un emprendimiento propio.
-        Busco seguir creciendo en equipos de marketing, comunicación
-        o publicidad, aportando iniciativa, creatividad y compromiso.
-    </p>
-
-</div>
-
-</section>
-
-<!-- PROYECTOS -->
-
-<section id="proyectos">
-
-<div class="wrap">
-
-    <div class="section-tag">02 / Trabajo seleccionado</div>
-
-    <h2 class="section-title">Proyectos destacados</h2>
-
-    <p class="intro">
-        Una selección de experiencias académicas y prácticas.
-        Cada caso se puede ampliar con piezas gráficas, objetivos,
-        proceso y resultados verificables.
-    </p>
-
-    <div class="grid">
-
-        <article class="card">
-
-            <div class="number">PROYECTO 01 · EMPRENDIMIENTO</div>
-
-            <h3>Doctor Celular</h3>
-
-            <p>
-                Desarrollo de identidad de marca y comunicación digital
-                para un servicio de reparación de dispositivos móviles.
-            </p>
-
-            <p style="text-align:center; margin-top:12px;">
-                <a class="btn secondary"
-                   href="https://www.instagram.com/drcelular.arg/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   style="font-size:13px; color:#b58aff;">
-                   Visitar Instagram de Doctor Celular ↗
-                </a>
-            </p>
-
-            <div class="tags">
-                <span class="tag">Branding</span>
-                <span class="tag">Social media</span>
-                <span class="tag">Contenido</span>
-                <span class="tag">Promociones</span>
+                <div class="actions">
+                    <a class="btn primary" href="#proyectos">Ver mis proyectos ↗</a>
+                    <a class="btn secondary" href="#contacto">Contactarme</a>
+                </div>
             </div>
 
-        </article>
+            <!-- FOTO PRINCIPAL Y MINIATURAS -->
+            <div class="photo-wrap">
+                <div class="photo">
+                    <img
+                        id="mainPhoto"
+                        src="imagenes/Perfil1.jpg"
+                        alt="Agustín - Marketing Digital"
+                    >
+                </div>
 
-        <article class="card">
-
-            <div class="number">PROYECTO 02 · ACADÉMICO</div>
-
-            <h3>Fundación Visión Cero Córdoba</h3>
-
-            <p>
-                Proyecto académico de marketing y comunicación enfocado
-                en el análisis de una organización y sus oportunidades
-                de comunicación.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Análisis</span>
-                <span class="tag">Públicos</span>
-                <span class="tag">Estrategia</span>
+                <div class="photo-gallery" aria-label="Galería de fotografías">
+                    <img src="imagenes/Perfil2.jpg" class="thumbnail" alt="Foto con diploma" tabindex="0">
+                    <img src="imagenes/Perfil3.jpg" class="thumbnail" alt="Foto personal" tabindex="0">
+                    <img src="imagenes/Perfil4.jpg" class="thumbnail" alt="Otra fotografía" tabindex="0">
+                    <img src="imagenes/Perfil5.jpg" class="thumbnail" alt="Otra fotografía" tabindex="0">
+                </div>
             </div>
+        </div>
 
-        </article>
+        <!-- ==================================================
+             SOBRE MÍ
+        ================================================== -->
+        <section id="sobre-mi">
+            <div class="wrap">
+                <div class="section-tag">01 / Presentación</div>
+                <h2 class="section-title">Sobre mí</h2>
 
-        <article class="card">
+                <p class="intro">
+                    Soy Técnico Universitario en Marketing y Publicidad Digital.
+                    Me formé en planificación de estrategias, comunicación de marca,
+                    publicidad y herramientas digitales. Disfruto transformar objetivos
+                    de negocio en acciones concretas, comprender al público y crear
+                    mensajes que generen conexión.
+                </p>
 
-            <div class="number">PROYECTO 03 · ACADÉMICO</div>
-
-            <h3>Ecocraft</h3>
-
-            <p>
-                Proyecto académico para trabajar el posicionamiento
-                de una propuesta de marca y el desarrollo de acciones
-                de marketing.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Marketing</span>
-                <span class="tag">Marca</span>
-                <span class="tag">Planificación</span>
+                <p class="intro">
+                    Combino mi formación académica con experiencia práctica en el
+                    desarrollo y la comunicación de un emprendimiento propio.
+                    Busco seguir creciendo en equipos de marketing, comunicación
+                    o publicidad, aportando iniciativa, creatividad y compromiso.
+                </p>
             </div>
-
-        </article>
-
-    </div>
-
-    <div class="project-note">
-        Nota: los textos describen los proyectos de forma inicial.
-        Antes de compartir el portfolio, completaremos cada caso con
-        tus tareas concretas, piezas originales y resultados disponibles.
-        No se incluyen métricas inventadas.
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- SECCIÓN: HERRAMIENTAS DIGITALES -->
-<section id="herramientas" class="tools-section">
-
-  <div class="tools-container">
-
-    <div class="section-heading">
-      <span class="section-subtitle">MIS RECURSOS</span>
-      <h2>Herramientas digitales</h2>
-      <p>
-        Herramientas que utilizo para desarrollar proyectos,
-        crear contenido y trabajar en el entorno digital.
-      </p>
-    </div>
-
-    <div class="tools-grid">
-
-      <!-- PHOTOSHOP -->
-      <article class="tool-card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg"
-             alt="Adobe Photoshop">
-        <h3>Adobe Photoshop</h3>
-        <p>Edición y retoque de imágenes, composición y diseño gráfico.</p>
-      </article>
-
-      <!-- CANVA -->
-      <article class="tool-card">
-        <img src="https://images.seeklogo.com/logo-png/65/1/canva-logo-png_seeklogo-653227.png"
-             alt="Canva">
-        <h3>Canva</h3>
-        <p>Diseño de piezas gráficas, presentaciones y contenido digital.</p>
-      </article>
-
-      <!-- CAPCUT -->
-      <article class="tool-card">
-        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/capcut-icon.png"
-             alt="CapCut">
-        <h3>CapCut</h3>
-        <p>Edición de videos y creación de contenido audiovisual.</p>
-      </article>
-
-      <!-- META ADS -->
-      <article class="tool-card">
-        <img src="https://cdn.simpleicons.org/meta/0866FF"
-             alt="Meta">
-        <h3>Meta Ads</h3>
-        <span class="tool-level">Nivel básico</span>
-        <p>Conocimientos iniciales de publicidad y campañas digitales.</p>
-      </article>
-
-      <!-- GOOGLE ANALYTICS -->
-      <article class="tool-card">
-        <img src="https://cdn.simpleicons.org/googleanalytics/E37400"
-             alt="Google Analytics">
-        <h3>Google Analytics</h3>
-        <span class="tool-level">Conocimientos iniciales</span>
-        <p>Familiarización con analítica y medición digital.</p>
-      </article>
-
-      <!-- MICROSOFT OFFICE -->
-      <article class="tool-card">
-        <img src="https://images.icon-icons.com/1156/PNG/512/1486565573-microsoft-office_81557.png"
-             alt="Microsoft Office">
-        <h3>Microsoft Office</h3>
-        <p>Elaboración de documentos, presentaciones y hojas de cálculo.</p>
-      </article>
-
-      <!-- GOOGLE WORKSPACE -->
-      <article class="tool-card">
-        <img src="https://static.wikia.nocookie.net/logopedia/images/c/c1/Google_Apps_for_Work_icon.png/revision/latest?cb=20241121044151"
-             alt="Google Workspace">
-        <h3>Google Workspace</h3>
-        <p>Productividad, organización y trabajo colaborativo.</p>
-      </article>
-
-      <!-- VISUAL STUDIO CODE -->
-      <article class="tool-card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-             alt="Visual Studio Code">
-        <h3>Visual Studio Code</h3>
-        <p>Edición de código y desarrollo de páginas web con HTML y CSS.</p>
-      </article>
-
-      
-    </div>
-  </div>
-</section>
-
-<style>
-/* HERRAMIENTAS DIGITALES */
-
-.tools-section {
-  padding: 80px 20px;
-}
-
-.tools-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section-subtitle {
-  color: #8b5cf6;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.section-heading h2 {
-  font-size: 32px;
-  margin: 12px 0;
-}
-
-.section-heading p {
-  color: #777;
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.tool-card {
-  background: #ffffff;
-  border: 1px solid #e9e5ef;
-  border-radius: 16px;
-  padding: 25px 20px;
-  text-align: center;
-  transition: transform 0.3s ease,
-              box-shadow 0.3s ease;
-}
-
-.tool-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(80, 40, 120, 0.10);
-}
-
-.tool-card img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-.tool-card h3 {
-  font-size: 16px;
-  margin: 5px 0 10px;
-  color: #25212b;
-}
-
-.tool-card p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #777;
-  margin: 0;
-}
-
-.tool-level {
-  display: inline-block;
-  font-size: 10px;
-  color: #8052bd;
-  background: #f2eafa;
-  padding: 5px 9px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
-
-/* ADAPTACIÓN A TABLETS */
-@media (max-width: 900px) {
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ADAPTACIÓN A CELULARES */
-@media (max-width: 480px) {
-  .tools-section {
-    padding: 55px 15px;
-  }
-
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .tool-card {
-    padding: 20px 12px;
-  }
-
-  .section-heading h2 {
-    font-size: 26px;
-  }
-
-  .tool-card h3 {
-    font-size: 14px;
-  }
-}
-</style>
-
-<!-- HABILIDADES -->
-
-<section id="habilidades">
-
-<div class="wrap">
-
-    <div class="section-tag">03 / Capacidades</div>
-
-    <h2 class="section-title">Áreas de trabajo</h2>
-
-    <p class="intro">
-        Conocimientos y áreas que podemos detallar según tu nivel
-        y experiencia real.
-    </p>
-
-    <div class="skills">
-
-        <span class="skill">Marketing digital</span>
-        <span class="skill">Estrategia de contenidos</span>
-        <span class="skill">Redes sociales</span>
-        <span class="skill">Branding</span>
-        <span class="skill">Publicidad digital</span>
-        <span class="skill">Comunicación</span>
-        <span class="skill">Análisis de públicos</span>
-        <span class="skill">Planificación</span>
-        <span class="skill">SEO · conocimientos</span>
-
-    </div>
-
-</div>
-
-</section>
-
-<!-- CONTACTO -->
-
-<section id="contacto">
-
-<div class="wrap">
-
-    <div class="section-tag">04 / Próximo paso</div>
-
-    <h2 class="titulo-animado section-title">
-    Hablemos de proyectos.
-    </h2>
-
-    <div class="contact">
-
-        <h3>¿Buscás sumar creatividad y estrategia a tu equipo?</h3>
-
-        <p>
-            Estoy abierto a oportunidades laborales y proyectos
-            vinculados al marketing, la comunicación y la publicidad digital.
-        </p>
-
-        <p>
-            <strong>Fabián Agustín Noello Celi</strong><br>
-            Rosario, Santa Fe, Argentina<br>
-            agunoello@gmail.com    <br>   +54 9 3385 550292
-        </p>
-<div class="contact-actions">
-<a
-    
-    class="btn primary"
-    href="https://mail.google.com/mail/?view=cm&fs=1&to=agunoello@gmail.com&su=Consulta%20desde%20tu%20portfolio&body=Hola%20Agust%C3%ADn%2C%0A%0AEstuve%20viendo%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20marketing%20digital.%0A%0AMe%20gustar%C3%ADa%20conversar%20sobre%20una%20posible%20oportunidad%20de%20trabajo%20o%20colaboraci%C3%B3n.%0A%0ASaludos."
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Enviar un correo ↗
-</a>
-
-<a
-    class="btn whatsapp"
-    href="https://wa.me/5493385550292?text=Hola%20Agust%C3%ADn%2C%20estuve%20viendo%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios."
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Hablemos por WhatsApp ↗
-</a>
-<a
-    class="btn linkedln"
-    href="https://www.linkedin.com/in/agustín-noello-964718236"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    LinkedIn ↗
-</a>
-</div>
-    </div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer>
-    <div class="wrap">
-        © 2026 Fabián Agustín Noello Celi · Portfolio de Marketing y Publicidad Digital
-    </div>
-</footer>
-
-<!-- FUNCIONALIDAD DE LA GALERÍA -->
-
-<script>
-
-/* FUNCIONALIDAD DE LA GALERÍA */
-
-const fotoPrincipal = "imagenes/Perfil1.jpg";
-const mainPhoto = document.getElementById("mainPhoto");
-const thumbnails = document.querySelectorAll(".thumbnail");
-const photoWrap = document.querySelector(".photo-wrap");
-
-function actualizarFoto(src, alt) {
-    if (!mainPhoto) return;
-
-    mainPhoto.classList.remove("animar");
-    void mainPhoto.offsetWidth;
-
-    mainPhoto.src = src;
-    mainPhoto.alt = alt;
-
-    mainPhoto.classList.add("animar");
-}
-
-function changePhoto(element) {
-    actualizarFoto(element.src, element.alt);
-}
-
-function restorePhoto() {
-    actualizarFoto(fotoPrincipal, "Agustín - Marketing Digital");
-}
-
-// Detectar dispositivos con cursor
-const tieneCursor = window.matchMedia(
-    "(hover: hover) and (pointer: fine)"
-).matches;
-
-// PC: cambiar al pasar el cursor
-thumbnails.forEach((thumbnail) => {
-    if (tieneCursor) {
-        thumbnail.addEventListener("mouseenter", () => {
-            changePhoto(thumbnail);
-        });
-    }
-
-    // Celular: cambiar con un solo toque
-    thumbnail.addEventListener("click", () => {
-        changePhoto(thumbnail);
-    });
-});
-
-// PC: volver a la principal al salir de la galería
-if (tieneCursor && photoWrap) {
-    photoWrap.addEventListener("mouseleave", restorePhoto);
-}
-
-// PC y celular: tocar la foto grande para volver a Perfil1
-mainPhoto.addEventListener("click", restorePhoto);
-
-
-// Animación de títulos al hacer scroll
-document.addEventListener("DOMContentLoaded", function() {
-
-    const titulos = document.querySelectorAll(
-        ".section-title, .section-heading h2"
-    );
-
-    const observador = new IntersectionObserver((entradas) => {
-        entradas.forEach((entrada) => {
-
-            if (entrada.isIntersecting) {
-                entrada.target.classList.add("visible");
-            } else {
-                entrada.target.classList.remove("visible");
+        </section>
+
+        <!-- ==================================================
+             PROYECTOS
+        ================================================== -->
+        <section id="proyectos">
+            <div class="wrap">
+                <div class="section-tag">02 / Trabajo seleccionado</div>
+                <h2 class="section-title">Proyectos destacados</h2>
+
+                <p class="intro">
+                    Una selección de experiencias académicas y prácticas.
+                    Cada caso se puede ampliar con piezas gráficas, objetivos,
+                    proceso y resultados verificables.
+                </p>
+
+                <div class="grid">
+                    <article class="card">
+                        <div class="number">PROYECTO 01 · EMPRENDIMIENTO</div>
+                        <h3>Doctor Celular</h3>
+
+                        <p>
+                            Desarrollo de identidad de marca y comunicación digital
+                            para un servicio de reparación de dispositivos móviles.
+                        </p>
+
+                        <div class="project-link-wrap">
+                            <a
+                                class="btn secondary project-link"
+                                href="https://www.instagram.com/drcelular.arg/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >Visitar Instagram de Doctor Celular ↗</a>
+                        </div>
+
+                        <div class="tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Social media</span>
+                            <span class="tag">Contenido</span>
+                            <span class="tag">Promociones</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="number">PROYECTO 02 · ACADÉMICO</div>
+                        <h3>Fundación Visión Cero Córdoba</h3>
+
+                        <p>
+                            Proyecto académico de marketing y comunicación enfocado
+                            en el análisis de una organización y sus oportunidades
+                            de comunicación.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Análisis</span>
+                            <span class="tag">Públicos</span>
+                            <span class="tag">Estrategia</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="number">PROYECTO 03 · ACADÉMICO</div>
+                        <h3>Ecocraft</h3>
+
+                        <p>
+                            Proyecto académico para trabajar el posicionamiento
+                            de una propuesta de marca y el desarrollo de acciones
+                            de marketing.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Marketing</span>
+                            <span class="tag">Marca</span>
+                            <span class="tag">Planificación</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="project-note">
+                    Nota: los textos describen los proyectos de forma inicial.
+                    Antes de compartir el portfolio, completaremos cada caso con
+                    tus tareas concretas, piezas originales y resultados disponibles.
+                    No se incluyen métricas inventadas.
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             HERRAMIENTAS DIGITALES
+        ================================================== -->
+        <section id="herramientas" class="tools-section">
+            <div class="tools-container">
+                <div class="section-heading">
+                    <span class="section-subtitle">MIS RECURSOS</span>
+                    <h2>Herramientas digitales</h2>
+                    <p>
+                        Herramientas que utilizo para desarrollar proyectos,
+                        crear contenido y trabajar en el entorno digital.
+                    </p>
+                </div>
+
+                <div class="tools-grid">
+                    <article class="tool-card">
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg"
+                            alt="Adobe Photoshop"
+                            loading="lazy"
+                        >
+                        <h3>Adobe Photoshop</h3>
+                        <p>Edición y retoque de imágenes, composición y diseño gráfico.</p>
+                    </article>
+
+                    <article class="tool-card">
+                        <img
+                            src="https://images.seeklogo.com/logo-png/65/1/canva-logo-png_seeklogo-653227.png"
+                            alt="Canva"
+                            loading="lazy"
+                        >
+                        <h3>Canva</h3>
+                        <p>Diseño de piezas gráficas, presentaciones y contenido digital.</p>
+                    </article>
+
+                    <article class="tool-card">
+                        <img
+                            src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/capcut-icon.png"
+                            alt="CapCut"
+                            loading="lazy"
+                        >
+                        <h3>CapCut</h3>
+                        <p>Edición de videos y creación de contenido audiovisual.</p>
+                    </article>
+
+                    <article class="tool-card">
+                        <img
+                            src="https://cdn.simpleicons.org/meta/0866FF"
+                            alt="Meta"
+                            loading="lazy"
+                        >
+                        <h3>Meta Ads</h3>
+                        <span class="tool-level">Nivel básico</span>
+                        <p>Conocimientos iniciales de publicidad y campañas digitales.</p>
+                    </article>
+
+                    <article class="tool-card">
+                        <img
+                            src="https://cdn.simpleicons.org/googleanalytics/E37400"
+                            alt="Google Analytics"
+                            loading="lazy"
+                        >
+                        <h3>Google Analytics</h3>
+                        <span class="tool-level">Conocimientos iniciales</span>
+                        <p>Familiarización con analítica y medición digital.</p>
+                    </article>
+
+                    <article class="tool-card">
+                        <img
+                            src="https://images.icon-icons.com/1156/PNG/512/1486565573-microsoft-office_81557.png"
+                            alt="Microsoft Office"
+                            loading="lazy"
+                        >
+                        <h3>Microsoft Office</h3>
+                        <p>Elaboración de documentos, presentaciones y hojas de cálculo.</p>
+                    </article>
+
+                    <article class="tool-card">
+                        <img
+                            src="https://static.wikia.nocookie.net/logopedia/images/c/c1/Google_Apps_for_Work_icon.png/revision/latest?cb=20241121044151"
+                            alt="Google Workspace"
+                            loading="lazy"
+                        >
+                        <h3>Google Workspace</h3>
+                        <p>Productividad, organización y trabajo colaborativo.</p>
+                    </article>
+
+                    <article class="tool-card">
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                            alt="Visual Studio Code"
+                            loading="lazy"
+                        >
+                        <h3>Visual Studio Code</h3>
+                        <p>Edición de código y desarrollo de páginas web con HTML y CSS.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             HABILIDADES
+        ================================================== -->
+        <section id="habilidades">
+            <div class="wrap">
+                <div class="section-tag">03 / Capacidades</div>
+                <h2 class="section-title">Áreas de trabajo</h2>
+
+                <p class="intro">
+                    Conocimientos y áreas que podemos detallar según tu nivel
+                    y experiencia real.
+                </p>
+
+                <div class="skills">
+                    <span class="skill">Marketing digital</span>
+                    <span class="skill">Estrategia de contenidos</span>
+                    <span class="skill">Redes sociales</span>
+                    <span class="skill">Branding</span>
+                    <span class="skill">Publicidad digital</span>
+                    <span class="skill">Comunicación</span>
+                    <span class="skill">Análisis de públicos</span>
+                    <span class="skill">Planificación</span>
+                    <span class="skill">SEO · conocimientos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             CONTACTO
+        ================================================== -->
+        <section id="contacto">
+            <div class="wrap">
+                <div class="section-tag">04 / Próximo paso</div>
+                <h2 class="section-title">Hablemos de proyectos.</h2>
+
+                <div class="contact">
+                    <h3>¿Buscás sumar creatividad y estrategia a tu equipo?</h3>
+
+                    <p>
+                        Estoy abierto a oportunidades laborales y proyectos
+                        vinculados al marketing, la comunicación y la publicidad digital.
+                    </p>
+
+                    <p>
+                        <strong>Fabián Agustín Noello Celi</strong><br>
+                        Rosario, Santa Fe, Argentina<br>
+                        <a href="mailto:agunoello@gmail.com">agunoello@gmail.com</a><br>
+                        <a href="tel:+5493385550292">+54 9 3385 550292</a>
+                    </p>
+
+                    <div class="contact-actions">
+                        <a
+                            class="btn primary"
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=agunoello@gmail.com&su=Consulta%20desde%20tu%20portfolio&body=Hola%20Agust%C3%ADn%2C%0A%0AEstuve%20viendo%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20marketing%20digital.%0A%0AMe%20gustar%C3%ADa%20conversar%20sobre%20una%20posible%20oportunidad%20de%20trabajo%20o%20colaboraci%C3%B3n.%0A%0ASaludos."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Enviar un correo ↗</a>
+
+                        <a
+                            class="btn whatsapp"
+                            href="https://wa.me/5493385550292?text=Hola%20Agust%C3%ADn%2C%20estuve%20viendo%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Hablemos por WhatsApp ↗</a>
+
+                        <a
+                            class="btn linkedln"
+                            href="https://www.linkedin.com/in/agustín-noello-964718236"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >LinkedIn ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================================================
+         PIE DE PÁGINA
+    ================================================== -->
+    <footer>
+        <div class="wrap">
+            © 2026 Fabián Agustín Noello Celi · Portfolio de Marketing y Publicidad Digital
+        </div>
+    </footer>
+
+    <script>
+        /* ==================================================
+           1. GALERÍA DE FOTOGRAFÍAS
+        ================================================== */
+        const fotoPrincipal = "imagenes/Perfil1.jpg";
+        const mainPhoto = document.getElementById("mainPhoto");
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const photoWrap = document.querySelector(".photo-wrap");
+
+        function actualizarFoto(src, alt) {
+            if (!mainPhoto) return;
+
+            mainPhoto.classList.remove("animar");
+            void mainPhoto.offsetWidth;
+
+            mainPhoto.src = src;
+            mainPhoto.alt = alt;
+            mainPhoto.classList.add("animar");
+        }
+
+        function changePhoto(element) {
+            actualizarFoto(element.src, element.alt);
+        }
+
+        function restorePhoto() {
+            actualizarFoto(fotoPrincipal, "Agustín - Marketing Digital");
+        }
+
+        const tieneCursor = window.matchMedia(
+            "(hover: hover) and (pointer: fine)"
+        ).matches;
+
+        thumbnails.forEach((thumbnail) => {
+            if (tieneCursor) {
+                thumbnail.addEventListener("mouseenter", () => {
+                    changePhoto(thumbnail);
+                });
             }
 
+            thumbnail.addEventListener("click", () => {
+                changePhoto(thumbnail);
+            });
+
+            thumbnail.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    changePhoto(thumbnail);
+                }
+            });
         });
-    }, {
-        threshold: 0.2
-    });
 
-    titulos.forEach((titulo) => {
-        titulo.classList.add("titulo-animado");
-        observador.observe(titulo);
-    });
+        if (tieneCursor && photoWrap) {
+            photoWrap.addEventListener("mouseleave", restorePhoto);
+        }
 
-});
+        if (mainPhoto) {
+            mainPhoto.addEventListener("click", restorePhoto);
+        }
 
+        /* ==================================================
+           2. ANIMACIÓN DE TÍTULOS AL HACER SCROLL
+        ================================================== */
+        const titulos = document.querySelectorAll(
+            ".section-title, .section-heading h2"
+        );
 
-</script>
+        if ("IntersectionObserver" in window) {
+            const observador = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add("visible");
+                    } else {
+                        entrada.target.classList.remove("visible");
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
 
+            titulos.forEach((titulo) => {
+                titulo.classList.add("titulo-animado");
+                observador.observe(titulo);
+            });
+        } else {
+            titulos.forEach((titulo) => titulo.classList.add("visible"));
+        }
 
+        /* ==================================================
+           3. SISTEMA BILINGÜE ESPAÑOL / INGLÉS
+        ================================================== */
+        const traducciones = {
+            "Ideas que se convierten en": "Ideas that become",
+            "estrategias.": "strategies.",
+            "Soy Agustín Noello, Técnico Universitario en Marketing y Publicidad Digital. Me interesa conectar marcas con personas a través de la creatividad, la comunicación y la estrategia digital.":
+                "I'm Agustín Noello, a University Technician in Digital Marketing and Advertising. I'm passionate about connecting brands with people through creativity, communication and digital strategy.",
+
+            "Sobre mí": "About me",
+            "Proyectos": "Projects",
+            "Habilidades": "Skills",
+            "Contacto": "Contact",
+            "Ver mis proyectos ↗": "View my projects ↗",
+            "Contactarme": "Get in touch",
+
+            "01 / Presentación": "01 / Introduction",
+            "Soy Técnico Universitario en Marketing y Publicidad Digital. Me formé en planificación de estrategias, comunicación de marca, publicidad y herramientas digitales. Disfruto transformar objetivos de negocio en acciones concretas, comprender al público y crear mensajes que generen conexión.":
+                "I hold a University Technician degree in Digital Marketing and Advertising. My education includes strategy planning, brand communication, advertising and digital tools. I enjoy turning business goals into actionable strategies, understanding audiences and creating messages that build meaningful connections.",
+            "Combino mi formación académica con experiencia práctica en el desarrollo y la comunicación de un emprendimiento propio. Busco seguir creciendo en equipos de marketing, comunicación o publicidad, aportando iniciativa, creatividad y compromiso.":
+                "I combine my academic background with hands-on experience developing and managing the communication of my own business. I'm looking to grow within marketing, communication or advertising teams, bringing initiative, creativity and commitment.",
+
+            "02 / Trabajo seleccionado": "02 / Selected work",
+            "Proyectos destacados": "Featured projects",
+            "Una selección de experiencias académicas y prácticas. Cada caso se puede ampliar con piezas gráficas, objetivos, proceso y resultados verificables.":
+                "A selection of academic and practical experiences. Each case can be explored further through visual assets, objectives, processes and verifiable results.",
+
+            "PROYECTO 01 · EMPRENDIMIENTO": "PROJECT 01 · BUSINESS",
+            "Desarrollo de identidad de marca y comunicación digital para un servicio de reparación de dispositivos móviles.":
+                "Brand identity development and digital communication for a mobile device repair business.",
+            "Visitar Instagram de Doctor Celular ↗": "Visit Doctor Celular on Instagram ↗",
+            "Contenido": "Content",
+            "Promociones": "Promotions",
+
+            "PROYECTO 02 · ACADÉMICO": "PROJECT 02 · ACADEMIC",
+            "Proyecto académico de marketing y comunicación enfocado en el análisis de una organización y sus oportunidades de comunicación.":
+                "An academic marketing and communication project focused on analyzing an organization and identifying its communication opportunities.",
+            "Análisis": "Analysis",
+            "Públicos": "Audiences",
+            "Estrategia": "Strategy",
+
+            "PROYECTO 03 · ACADÉMICO": "PROJECT 03 · ACADEMIC",
+            "Proyecto académico para trabajar el posicionamiento de una propuesta de marca y el desarrollo de acciones de marketing.":
+                "An academic project focused on brand positioning and the development of marketing initiatives.",
+            "Marketing": "Marketing",
+            "Marca": "Brand",
+            "Planificación": "Planning",
+
+            "Nota: los textos describen los proyectos de forma inicial. Antes de compartir el portfolio, completaremos cada caso con tus tareas concretas, piezas originales y resultados disponibles. No se incluyen métricas inventadas.":
+                "Note: these descriptions provide an initial overview of each project. Each case can be expanded with specific responsibilities, original materials and available results. No metrics have been invented.",
+
+            "MIS RECURSOS": "MY TOOLS",
+            "Herramientas digitales": "Digital tools",
+            "Herramientas que utilizo para desarrollar proyectos, crear contenido y trabajar en el entorno digital.":
+                "Tools I use to develop projects, create content and work in the digital environment.",
+            "Edición y retoque de imágenes, composición y diseño gráfico.":
+                "Image editing and retouching, composition and graphic design.",
+            "Diseño de piezas gráficas, presentaciones y contenido digital.":
+                "Designing visual assets, presentations and digital content.",
+            "Edición de videos y creación de contenido audiovisual.":
+                "Video editing and audiovisual content creation.",
+            "Nivel básico": "Basic level",
+            "Conocimientos iniciales": "Basic knowledge",
+            "Conocimientos iniciales de publicidad y campañas digitales.":
+                "Basic knowledge of digital advertising and campaigns.",
+            "Familiarización con analítica y medición digital.":
+                "Familiarity with digital analytics and measurement.",
+            "Elaboración de documentos, presentaciones y hojas de cálculo.":
+                "Creating documents, presentations and spreadsheets.",
+            "Productividad, organización y trabajo colaborativo.":
+                "Productivity, organization and collaborative work.",
+            "Edición de código y desarrollo de páginas web con HTML y CSS.":
+                "Code editing and website development using HTML and CSS.",
+
+            "03 / Capacidades": "03 / Skills",
+            "Áreas de trabajo": "Areas of expertise",
+            "Conocimientos y áreas que podemos detallar según tu nivel y experiencia real.":
+                "Knowledge and areas of expertise that can be further detailed according to my actual skills and experience.",
+            "Marketing digital": "Digital marketing",
+            "Estrategia de contenidos": "Content strategy",
+            "Redes sociales": "Social media",
+            "Branding": "Branding",
+            "Publicidad digital": "Digital advertising",
+            "Comunicación": "Communication",
+            "Análisis de públicos": "Audience analysis",
+            "SEO · conocimientos": "SEO · basic knowledge",
+
+            "04 / Próximo paso": "04 / Next step",
+            "Hablemos de proyectos.": "Let's talk about projects.",
+            "¿Buscás sumar creatividad y estrategia a tu equipo?":
+                "Looking to bring creativity and strategy to your team?",
+            "Estoy abierto a oportunidades laborales y proyectos vinculados al marketing, la comunicación y la publicidad digital.":
+                "I'm open to job opportunities and projects related to marketing, communication and digital advertising.",
+            "Enviar un correo ↗": "Send an email ↗",
+            "Hablemos por WhatsApp ↗": "Let's talk on WhatsApp ↗",
+
+            "© 2026 Fabián Agustín Noello Celi · Portfolio de Marketing y Publicidad Digital":
+                "© 2026 Fabián Agustín Noello Celi · Digital Marketing and Advertising Portfolio"
+        };
+
+        /* Guardamos los textos originales una sola vez */
+        const nodosTexto = [];
+        const recorrido = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT
+        );
+
+        while (recorrido.nextNode()) {
+            const nodo = recorrido.currentNode;
+
+            if (nodo.parentElement.closest("script, style")) {
+                continue;
+            }
+
+            nodosTexto.push({
+                nodo,
+                original: nodo.nodeValue
+            });
+        }
+
+        function cambiarIdioma(idioma) {
+            nodosTexto.forEach(({ nodo, original }) => {
+                const texto = original.trim().replace(/\s+/g, " ");
+                const inicio = original.match(/^\s*/)[0];
+                const final = original.match(/\s*$/)[0];
+
+                if (idioma === "en") {
+                    const traduccion = traducciones[texto];
+                    nodo.nodeValue = inicio + (traduccion || texto) + final;
+                } else {
+                    nodo.nodeValue = original;
+                }
+            });
+
+            document.documentElement.lang = idioma;
+
+            document.title = idioma === "en"
+                ? "Agustín Noello | Marketing & Digital Advertising"
+                : "Agustín Noello | Marketing y Publicidad Digital";
+
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.content = idioma === "en"
+                    ? "Professional portfolio of Agustín Noello — Digital Marketing and Advertising."
+                    : "Portfolio profesional de Agustín Noello — Marketing y Publicidad Digital.";
+            }
+
+            document.querySelectorAll(".lang-btn").forEach((boton) => {
+                const activo = boton.dataset.lang === idioma;
+                boton.classList.toggle("active", activo);
+                boton.setAttribute("aria-pressed", String(activo));
+            });
+        }
+
+        document.querySelectorAll(".lang-btn").forEach((boton) => {
+            boton.addEventListener("click", () => {
+                cambiarIdioma(boton.dataset.lang);
+            });
+        });
+    </script>
 </body>
 </html>
