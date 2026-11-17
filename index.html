@@ -798,6 +798,105 @@
             }
         }
 
+/* BOTONES DE DESCARGA DEL CV */
+
+.cv-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 25px auto 0;
+    width: min(100% - 40px, 600px);
+}
+
+.flag-icon {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    max-width: 18px;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 6px;
+    border-radius: 2px;
+}
+
+/* BANDERAS DEL SELECTOR DE IDIOMA */
+
+.language-switch .lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+}
+
+.language-switch .lang-btn img {
+    display: block;
+    width: 20px;
+    height: 14px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.language-switch .lang-btn:hover,
+.language-switch .lang-btn.active {
+    border-color: var(--purple);
+    border-radius: 6px;
+}
+
+/* AJUSTES PARA MÓVILES */
+
+@media (max-width: 760px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 0;
+        gap: 8px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .language-switch {
+        order: 2;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .links {
+        order: 3;
+        flex: 0 0 100%;
+        justify-content: space-between;
+        gap: 6px;
+        min-width: 0;
+    }
+
+    .cv-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cv-buttons .btn {
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
+@media (max-width: 470px) {
+    .language-switch .lang-btn img {
+        width: 20px;
+        height: 14px;
+    }
+
+    .cv-buttons {
+        width: calc(100% - 30px);
+    }
+}
+
         /* ==================================================
            14. ESCRITORIO GRANDE
         ================================================== */
