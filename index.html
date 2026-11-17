@@ -429,9 +429,29 @@
         }
 
         .project-link {
-            color: #b58aff;
-            font-size: 13px;
-        }
+    display: flex;
+    width: fit-content;
+    margin: 18px auto 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 11px 16px;
+
+    color: var(--text);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        rgba(155, 124, 255, .16),
+        rgba(213, 140, 255, .08)
+    );
+
+    border: 1px solid rgba(155, 124, 255, .4);
+    border-radius: 10px;
+    transition: all .25s ease;
+}
 
         /* ==================================================
            8. HERRAMIENTAS DIGITALES
@@ -896,7 +916,54 @@
         width: calc(100% - 30px);
     }
 }
+/* ENLACES A PROYECTOS */
 
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 11px 16px;
+
+    color: var(--text);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        rgba(155, 124, 255, .16),
+        rgba(213, 140, 255, .08)
+    );
+
+    border: 1px solid rgba(155, 124, 255, .4);
+    border-radius: 10px;
+
+    transition: all .25s ease;
+}
+
+.project-link:hover {
+    background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--pink)
+    );
+
+    color: white;
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(155, 124, 255, .2);
+}
+
+.project-link-icon {
+    font-size: 1.1rem;
+    transition: transform .25s ease;
+}
+
+.project-link:hover .project-link-icon {
+    transform: translate(3px, -3px);
+}
         /* ==================================================
            14. ESCRITORIO GRANDE
         ================================================== */
@@ -1313,7 +1380,7 @@
                             <span class="tag">Promociones</span>
                         </div>
                     </article>
-
+                    
                     <article class="card">
                         <div class="number">PROYECTO 02 · ACADÉMICO</div>
                         <h3>Fundación Visión Cero Córdoba</h3>
@@ -1323,12 +1390,19 @@
                             en el análisis de una organización y sus oportunidades
                             de comunicación.
                         </p>
-
+                        <a href="documentos/VisionCero.pdf"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="project-link">
+                            <span>Ver proyecto</span>
+                            <span class="project-link-icon">↗</span>
+                        </a>       
                         <div class="tags">
                             <span class="tag">Análisis</span>
                             <span class="tag">Públicos</span>
                             <span class="tag">Estrategia</span>
                         </div>
+                        
                     </article>
 
                     <article class="card">
@@ -1339,7 +1413,14 @@
                             Proyecto académico para trabajar el posicionamiento
                             de una propuesta de marca y el desarrollo de acciones
                             de marketing.
-                        </p>
+                        </p>    
+                        <a href="documentos/EcoCraft.pdf"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="project-link">
+                            <span>Ver proyecto</span>
+                            <span class="project-link-icon">↗</span>
+                        </a>
 
                         <div class="tags">
                             <span class="tag">Marketing</span>
@@ -1347,13 +1428,6 @@
                             <span class="tag">Planificación</span>
                         </div>
                     </article>
-                </div>
-
-                <div class="project-note">
-                    Nota: los textos describen los proyectos de forma inicial.
-                    Antes de compartir el portfolio, completaremos cada caso con
-                    tus tareas concretas, piezas originales y resultados disponibles.
-                    No se incluyen métricas inventadas.
                 </div>
             </div>
         </section>
@@ -1670,7 +1744,7 @@
                 "An academic marketing and communication project focused on analyzing an organization and identifying its communication opportunities.",
             "Análisis": "Analysis",
             "Públicos": "Audiences",
-            "Estrategia": "Strategy",
+            "Estrategia": "Strategy", 
 
             "PROYECTO 03 · ACADÉMICO": "PROJECT 03 · ACADEMIC",
             "Proyecto académico para trabajar el posicionamiento de una propuesta de marca y el desarrollo de acciones de marketing.":
@@ -1678,9 +1752,7 @@
             "Marketing": "Marketing",
             "Marca": "Brand",
             "Planificación": "Planning",
-
-            "Nota: los textos describen los proyectos de forma inicial. Antes de compartir el portfolio, completaremos cada caso con tus tareas concretas, piezas originales y resultados disponibles. No se incluyen métricas inventadas.":
-                "Note: these descriptions provide an initial overview of each project. Each case can be expanded with specific responsibilities, original materials and available results. No metrics have been invented.",
+            "Ver proyecto": "View project",
 
             "MIS RECURSOS": "MY TOOLS",
             "Herramientas digitales": "Digital tools",
