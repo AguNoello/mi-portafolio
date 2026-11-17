@@ -887,6 +887,23 @@
                 width: 76px;
                 height: 76px;
             }
+            @media (max-width: 470px) {
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+            }
+        
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 260px;
+                text-align: center;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            }
 
             section {
                 padding-block: 105px;
@@ -987,6 +1004,49 @@
             footer {
                 font-size: .95rem;
             }
+            .cv-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                margin-top: 25px;
+                width: 100%;
+            }
+
+            .flag-icon {
+                display: inline-block;
+                width: 18px !important;
+                height: 12px !important;
+                max-width: 18px;
+                object-fit: cover;
+                vertical-align: middle;
+                margin-right: 6px;
+                border-radius: 2px;
+            }
+            .language-switch .lang-btn img {
+                display: block;
+                width: 20px;
+                height: 14px;
+                object-fit: cover;
+                border-radius: 2px;
+            }
+
+            .language-switch .lang-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 5px;
+                border: 1px solid transparent;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            .language-switch .lang-btn:hover {
+                border-color: var(--purple);
+                border-radius: 6px;
+            }
+
         }
 
         /* Accesibilidad: reducir animaciones si el usuario lo prefiere */
@@ -1020,9 +1080,13 @@
                 </div>
 
                 <div class="language-switch" aria-label="Seleccionar idioma">
-                    <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
-                    <span aria-hidden="true">|</span>
-                    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                    <button class="lang-btn" data-lang="es" aria-label="Español">
+                        <img src="https://flagcdn.com/ar.svg" alt="Español">
+                    </button>
+                
+                    <button class="lang-btn" data-lang="en" aria-label="English">
+                        <img src="https://flagcdn.com/gb.svg" alt="English">
+                    </button>
                 </div>
             </nav>
         </div>
@@ -1095,8 +1159,21 @@
                     o publicidad, aportando iniciativa, creatividad y compromiso.
                 </p>
             </div>
-        </section>
+            <div class="cv-buttons">
 
+                        <a href="documentos/CV-AgustinNoello-ES.pdf" download class="btn">
+                <img src="https://flagcdn.com/ar.svg" alt="Argentina" class="flag-icon">
+                Descargar CV
+            </a>
+
+            <a href="documentos/CV-AgustinNoello-EN.pdf" download class="btn btn-outline">
+                <img src="https://flagcdn.com/gb.svg" alt="United Kingdom" class="flag-icon">
+                Download CV
+            </a>
+
+            </div>
+        </section>
+        
         <!-- ==================================================
              PROYECTOS
         ================================================== -->
