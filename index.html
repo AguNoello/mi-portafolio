@@ -817,7 +817,30 @@
                 white-space: nowrap;
             }
         }
+        /* RESPONSIVE - BOTONES DE PROYECTOS */
 
+@media (max-width: 760px) {
+    .project-link {
+        display: flex;
+        width: fit-content;
+        max-width: 100%;
+        margin: 18px auto 0;
+        padding: 10px 14px;
+        font-size: .85rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 470px) {
+    .project-link {
+        width: 100%;
+        max-width: 260px;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px;
+        font-size: .82rem;
+    }
+}
 /* BOTONES DE DESCARGA DEL CV */
 
 .cv-buttons {
